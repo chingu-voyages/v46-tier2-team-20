@@ -1,0 +1,20 @@
+{
+    "env": {
+      "browser": true,
+      "es2021": true
+    },
+    "extends": ["airbnb-base", "airbnb/rules/react"],
+    "parserOptions": {
+      "ecmaVersion": "latest",
+      "sourceType": "module",
+      "ecmaFeatures": {
+        "jsx": true
+      }
+    },
+    "root": true,
+    "rules": {
+      "no-shadow": "off",
+      "react/display-name": "off",
+      "react/react-in-jsx-scope": "off"
+    }
+  }
