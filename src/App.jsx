@@ -70,7 +70,7 @@ function App() {
           value={ingredients}
           onChange={(e) => setIngredients(e.target.value)}
         />
-        <button className="search-btn" type="submit">Search!</button>
+        <button className="search-btn" type="submit" disabled={isSearching}>Search!</button>
       </form>
       {isSearching && <p>Searching...</p>}
       {recipes ? (
