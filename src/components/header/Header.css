@@ -7,6 +7,7 @@
     justify-content: center;
     gap: 0.625rem; 
     background: url('/public/header_img.jpg');
+    background-size: cover;
     color: #FFF;
 }
 
