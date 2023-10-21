@@ -2,16 +2,17 @@ import { useState } from 'react';
 import './App.css';
 
 import axios from 'axios';
+import Header from './components/header/Header';
 
 function App() {
-  //I'm thinking setIngredients will be passed as props to the search bar
+  // I'm thinking setIngredients will be passed as props to the search bar
   const [ingredients, setIngredients] = useState('');
   const [recipes, setRecipes] = useState(null);
   const [isSearching, setIsSearching] = useState(false);
   const [error, setError] = useState('Add an ingredient to search!');
 
-  //This function could potentially be moved out to a "utils" folder?
-  //In that case, I think the response or error could be returned, and then used with setRecipes or setError here
+  // This function could potentially be moved out to a "utils" folder?
+  // In that case, I think the response or error could be returned, and then used with setRecipes or setError here
   async function fetchData(ingredientString) {
     setIsSearching(true);
 
@@ -46,7 +47,7 @@ function App() {
     }
   }
 
-  //I'm thinking this function will be passed as props to the search bar
+  // I'm thinking this function will be passed as props to the search bar
   function handleSearch(e) {
     e.preventDefault();
 
@@ -60,9 +61,7 @@ function App() {
 
   return (
     <div>
-      <h1 className="text-3xl text-orange-500 font-bold underline text-center">
-        Recipe App
-      </h1>
+      <Header />
       <form onSubmit={handleSearch}>
         <label>Ingredient(s)</label>
         <input
