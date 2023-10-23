@@ -2,7 +2,7 @@ import { useState } from 'react';
 import './App.css';
 import axios from 'axios';
 
-import RecipesDisplay from './components/RecipesDisplay/RecipesDisplay';
+import RecipeBrief from './components/RecipesDisplay/RecipeBrief';
 
 function App() {
   // I'm thinking setIngredients will be passed as props to the search bar
@@ -85,7 +85,7 @@ function App() {
         ) : <p>{error}</p>}
       </div>
       {/*  */}
-      <RecipesDisplay recipes={recipes} />
+      <RecipeBrief recipes={recipes} />
     </>
   );
 }
