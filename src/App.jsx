@@ -23,7 +23,7 @@ function App() {
         q: ingredientString,
       },
       headers: {
-        'X-RapidAPI-Key': '76d7fe0a0fmsh0e82783d702bde2p14d53ajsn1fb5e9f06c51',
+        'X-RapidAPI-Key': ,
         'X-RapidAPI-Host': 'tasty.p.rapidapi.com',
       },
     };
