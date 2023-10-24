@@ -23,7 +23,7 @@ function App() {
         q: ingredientString,
       },
       headers: {
-        'X-RapidAPI-Key': ,
+        'X-RapidAPI-Key': import.meta.env.VITE_SOME_KEY,
         'X-RapidAPI-Host': 'tasty.p.rapidapi.com',
       },
     };
