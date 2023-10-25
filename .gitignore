@@ -24,11 +24,4 @@ dist-ssr
 *.njsproj
 *.sln
 *.sw?
-<<<<<<< HEAD
-
-#eslint
 .eslintcache
-=======
-.eslintcache
-.eslintcache
->>>>>>> development
