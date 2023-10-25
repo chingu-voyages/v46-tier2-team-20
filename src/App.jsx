@@ -8,9 +8,9 @@ import Header from './components/header/Header';
 import SummaryDetail from './components/summaryDetail/SummaryDetail';
 
 function App() {
-  // I'm thinking setIngredients will be passed as props to the search bar
   const [ingredients, setIngredients] = useState('');
   const [recipes, setRecipes] = useState(null);
+  const [recipeDetail, setRecipeDetail] = useState(null);
   const [isSearching, setIsSearching] = useState(false);
   const [error, setError] = useState('Add an ingredient to search!');
 
@@ -62,14 +62,15 @@ function App() {
     fetchData(ingredients);
   }
 
-  function handleRecipeBriefClick(id) {
-    console.log(`The recipe id is ${id}`);
+  function handleRecipeBriefClick(recipe) {
+    setRecipeDetail(recipe);
   }
 
   return (
     <>
       <div>
         <Header />
+
         <form onSubmit={handleSearch}>
           <label>Ingredient(s)</label>
           <input
@@ -89,11 +90,17 @@ function App() {
           </p>
         ) : <p>{error}</p>}
       </div>
-      {/*  */}
+      {recipeDetail
+        && (
+        <SummaryDetail
+          recipeDetail={recipeDetail}
+        />
+        )}
       <RecipeBrief
         recipes={recipes}
         handleRecipeBriefClick={handleRecipeBriefClick}
       />
+
     </>
   );
 }
