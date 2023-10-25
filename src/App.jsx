@@ -1,8 +1,10 @@
 import { useState } from 'react';
 import './App.css';
+
 import axios from 'axios';
 
 import RecipeBrief from './components/RecipesDisplay/RecipeBrief';
+import Header from './components/header/Header';
 
 function App() {
   // I'm thinking setIngredients will be passed as props to the search bar
@@ -62,9 +64,7 @@ function App() {
   return (
     <>
       <div>
-        <h1 className="text-3xl text-orange-500 font-bold underline text-center">
-          Recipe App
-        </h1>
+        <Header />
         <form onSubmit={handleSearch}>
           <label>Ingredient(s)</label>
           <input
