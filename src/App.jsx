@@ -2,6 +2,8 @@ import { useState } from 'react';
 import './App.css';
 import axios from 'axios';
 
+import RecipeBrief from './components/RecipesDisplay/RecipeBrief';
+
 function App() {
   // I'm thinking setIngredients will be passed as props to the search bar
   const [ingredients, setIngredients] = useState('');
@@ -58,29 +60,33 @@ function App() {
   }
 
   return (
-    <div>
-      <h1 className="text-3xl text-orange-500 font-bold underline text-center">
-        Recipe App
-      </h1>
-      <form onSubmit={handleSearch}>
-        <label>Ingredient(s)</label>
-        <input
-          type="text"
-          name="ingredients"
-          value={ingredients}
-          onChange={(e) => setIngredients(e.target.value)}
-        />
-        <button className="search-btn" type="submit" disabled={isSearching}>Search!</button>
-      </form>
-      {isSearching && <p>Searching...</p>}
-      {recipes ? (
-        <p>
-          {recipes.length}
-          {' '}
-          recipes found!
-        </p>
-      ) : <p>{error}</p>}
-    </div>
+    <>
+      <div>
+        <h1 className="text-3xl text-orange-500 font-bold underline text-center">
+          Recipe App
+        </h1>
+        <form onSubmit={handleSearch}>
+          <label>Ingredient(s)</label>
+          <input
+            type="text"
+            name="ingredients"
+            value={ingredients}
+            onChange={(e) => setIngredients(e.target.value)}
+          />
+          <button className="search-btn" type="submit" disabled={isSearching}>Search!</button>
+        </form>
+        {isSearching && <p>Searching...</p>}
+        {recipes ? (
+          <p>
+            {recipes.length}
+            {' '}
+            recipes found!
+          </p>
+        ) : <p>{error}</p>}
+      </div>
+      {/*  */}
+      <RecipeBrief recipes={recipes} />
+    </>
   );
 }
 
