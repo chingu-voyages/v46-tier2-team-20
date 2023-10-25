@@ -3,7 +3,7 @@ import './App.css';
 
 import axios from 'axios';
 
-import RecipeBrief from './components/RecipesDisplay/RecipeBrief';
+import RecipeBrief from './components/recipeBrief/RecipeBrief';
 import Header from './components/header/Header';
 
 function App() {
