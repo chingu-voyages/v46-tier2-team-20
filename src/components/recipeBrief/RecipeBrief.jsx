@@ -10,7 +10,7 @@ export default function RecipesBrief({ recipes, handleRecipeBriefClick }) {
         <img src={thumbnailUrl} />
         <h1>{name}</h1>
         <button
-          onClick={() => handleRecipeBriefClick(id)}
+          onClick={() => handleRecipeBriefClick(recipe)}
         >
           View recipe details
         </button>
