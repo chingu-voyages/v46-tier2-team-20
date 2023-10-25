@@ -12,7 +12,6 @@ dist
 dist-ssr
 *.local
 
-.eslintcache
 # .env
 
 # Editor directories and files
@@ -25,3 +24,5 @@ dist-ssr
 *.njsproj
 *.sln
 *.sw?
+.eslintcache
+.eslintcache

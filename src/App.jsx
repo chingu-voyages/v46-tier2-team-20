@@ -3,14 +3,14 @@ import './App.css';
 import axios from 'axios';
 
 function App() {
-  //I'm thinking setIngredients will be passed as props to the search bar
+  // I'm thinking setIngredients will be passed as props to the search bar
   const [ingredients, setIngredients] = useState('');
   const [recipes, setRecipes] = useState(null);
   const [isSearching, setIsSearching] = useState(false);
   const [error, setError] = useState('Add an ingredient to search!');
 
-  //This function could potentially be moved out to a "utils" folder?
-  //In that case, I think the response or error could be returned, and then used with setRecipes or setError here
+  // This function could potentially be moved out to a "utils" folder?
+  // In that case, I think the response or error could be returned, and then used with setRecipes or setError here
   async function fetchData(ingredientString) {
     setIsSearching(true);
 
@@ -23,7 +23,7 @@ function App() {
         q: ingredientString,
       },
       headers: {
-        'X-RapidAPI-Key': import.meta.env.VITE_SOME_KEY,
+        'X-RapidAPI-Key': import.meta.env.VITE_API_KEY,
         'X-RapidAPI-Host': 'tasty.p.rapidapi.com',
       },
     };
@@ -45,7 +45,7 @@ function App() {
     }
   }
 
-  //I'm thinking this function will be passed as props to the search bar
+  // I'm thinking this function will be passed as props to the search bar
   function handleSearch(e) {
     e.preventDefault();
 
