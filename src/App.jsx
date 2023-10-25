@@ -5,6 +5,7 @@ import axios from 'axios';
 
 import RecipeBrief from './components/recipeBrief/RecipeBrief';
 import Header from './components/header/Header';
+import SummaryDetail from './components/summaryDetail/SummaryDetail';
 
 function App() {
   // I'm thinking setIngredients will be passed as props to the search bar
@@ -61,6 +62,10 @@ function App() {
     fetchData(ingredients);
   }
 
+  function handleRecipeBriefClick(id) {
+    console.log(`The recipe id is ${id}`);
+  }
+
   return (
     <>
       <div>
@@ -85,7 +90,10 @@ function App() {
         ) : <p>{error}</p>}
       </div>
       {/*  */}
-      <RecipeBrief recipes={recipes} />
+      <RecipeBrief
+        recipes={recipes}
+        handleRecipeBriefClick={handleRecipeBriefClick}
+      />
     </>
   );
 }
