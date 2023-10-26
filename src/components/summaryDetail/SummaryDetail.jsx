@@ -6,7 +6,7 @@ export default function SummaryDetail({ recipeDetail }) {
   } = recipeDetail;
 
   // Ingredients
-  const ingredientEls = sections.map((section) => section.components.map((component) => (<p key={nanoid()}>{component.raw_text }</p>)));
+  const ingredientEls = sections.map((section) => section.components.map((component) => (<p key={nanoid()}>{component.raw_text}</p>)));
 
   // Nutrition
   let nutritionEls = null;
@@ -24,7 +24,12 @@ export default function SummaryDetail({ recipeDetail }) {
     ));
 
   // Instructions
-  const instructionEls = instructions.map((instruction) => (<p key={nanoid()}>{instruction.display_text }</p>));
+  const instructionEls = instructions.map((instruction) => (<p key={nanoid()}>{instruction.display_text}</p>));
+
+  // Categories
+  const categoryEls = tags
+    .filter((tag) => tag.type === 'dietary' || tag.type === 'meal' || tag.type === 'difficulty')
+    .map((tag) => (<p key={nanoid()}>{tag.display_name}</p>));
 
   return (
     <>
@@ -35,6 +40,8 @@ export default function SummaryDetail({ recipeDetail }) {
       {nutritionEls}
       <h3>Instructions</h3>
       {instructionEls}
+      <h4>Categories</h4>
+      {categoryEls}
     </>
   );
 }
