@@ -5,8 +5,10 @@ export default function SummaryDetail({ recipeDetail }) {
     name, thumbnail_url: thumbnailUrl, video_url: videoUrl, nutrition, instructions, sections, tags,
   } = recipeDetail;
 
+  // Ingredients
   const ingredientEls = sections.map((section) => section.components.map((component) => (<p key={nanoid()}>{component.raw_text }</p>)));
 
+  // Nutrition
   let nutritionEls = null;
   if (Object.keys(nutrition).length === 0) {
     return nutritionEls = null;
@@ -21,6 +23,9 @@ export default function SummaryDetail({ recipeDetail }) {
       </p>
     ));
 
+  // Instructions
+  const instructionEls = instructions.map((instruction) => (<p key={nanoid()}>{instruction.display_text }</p>));
+
   return (
     <>
       <h2>{name}</h2>
@@ -29,6 +34,7 @@ export default function SummaryDetail({ recipeDetail }) {
       <h3>Nutrition</h3>
       {nutritionEls}
       <h3>Instructions</h3>
+      {instructionEls}
     </>
   );
 }
