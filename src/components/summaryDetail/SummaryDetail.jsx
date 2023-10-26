@@ -16,7 +16,7 @@ export default function SummaryDetail({
   }
 
   return (
-    <div className={`${isDetailShown ? 'show-summary-detail' : 'hide-summary-detail'} fixed top-0 right-0 h-full max-w-2xl bg-white max-h-screen overflow-y-scroll inline-flex flex-col items-center`}>
+    <div className={`${isDetailShown ? 'show-summary-detail' : 'hide-summary-detail'} fixed top-0 right-0 h-full max-w-2xl bg-white max-h-screen overflow-y-scroll inline-flex flex-col items-center pb-4`}>
 
       <button onClick={handleSummaryDetailClose} className="self-end fixed top-4 w-4 h-4 bg-gray-700 rounded-full mr-4 p-4 text-white inline-flex items-center justify-center">X</button>
 
@@ -47,6 +47,9 @@ export default function SummaryDetail({
         <Instructions
           instructions={instructions}
         />
+
+        <a href={videoUrl} className="block py-10 text-xs">How to video</a>
+
         <Categories
           tags={tags}
         />
