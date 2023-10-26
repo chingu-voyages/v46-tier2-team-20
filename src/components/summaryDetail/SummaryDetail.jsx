@@ -28,15 +28,15 @@ export default function SummaryDetail({
 
         <h2 className="self-start py-10 border-b-2 border-grey-300 text-3xl font-semibold">{name}</h2>
 
-        <div className="flex justify-between py-10">
+        <div className="flex justify-between gap-10 py-10">
           <div>
-            <h3 className="font-semibold">Ingredients</h3>
+            <h3 className="font-semibold pb-5">Ingredients</h3>
             <Ingredients
               sections={sections}
             />
           </div>
           <div>
-            <h3 className="font-semibold">Nutrition</h3>
+            <h3 className="font-semibold pb-5">Nutrition</h3>
             <Nutrition
               nutrition={nutrition}
             />
