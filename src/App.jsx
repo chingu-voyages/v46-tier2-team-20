@@ -100,6 +100,7 @@ function App() {
         && (
         <SummaryDetail
           recipeDetail={recipeDetail}
+          setRecipeDetail={setRecipeDetail}
           toggleIsDetailShown={toggleIsDetailShown}
         />
         )}

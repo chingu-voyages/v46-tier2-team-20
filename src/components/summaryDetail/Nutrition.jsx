@@ -8,7 +8,7 @@ export default function Nutrition({ nutrition }) {
   nutritionEls = Object.entries(nutrition)
     .filter(([key, value]) => key !== 'updated_at')
     .map(([key, value]) => (
-      <p key={nanoid()}>
+      <p key={nanoid()} className="text-xs">
         {key}
         {': '}
         {value}
