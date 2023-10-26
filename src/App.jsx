@@ -11,6 +11,7 @@ function App() {
   const [ingredients, setIngredients] = useState('');
   const [recipes, setRecipes] = useState(null);
   const [recipeDetail, setRecipeDetail] = useState(null);
+  const [isDetailShown, setIsDetailShown] = useState(false);
   const [isSearching, setIsSearching] = useState(false);
   const [error, setError] = useState('Add an ingredient to search!');
 
@@ -38,7 +39,7 @@ function App() {
       if (response.data.count > 0) {
         // The returned data object has two properties - count and results.
         // Results is an array of recipe data objects.
-        console.log(response.data.results);
+        // console.log(response.data.results);
         setRecipes(response.data.results);
       } else {
         setError('No recipes found - try a different ingredient');
@@ -64,6 +65,7 @@ function App() {
 
   function handleRecipeBriefClick(recipe) {
     setRecipeDetail(recipe);
+    setIsDetailShown(true);
   }
 
   return (
@@ -90,7 +92,7 @@ function App() {
           </p>
         ) : <p>{error}</p>}
       </div>
-      {recipeDetail
+      {isDetailShown
         && (
         <SummaryDetail
           recipeDetail={recipeDetail}
