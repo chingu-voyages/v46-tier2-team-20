@@ -65,7 +65,11 @@ function App() {
 
   function handleRecipeBriefClick(recipe) {
     setRecipeDetail(recipe);
-    setIsDetailShown(true);
+    toggleIsDetailShown();
+  }
+
+  function toggleIsDetailShown() {
+    setIsDetailShown((prevIsDetailShown) => !prevIsDetailShown);
   }
 
   return (
@@ -96,6 +100,7 @@ function App() {
         && (
         <SummaryDetail
           recipeDetail={recipeDetail}
+          toggleIsDetailShown={toggleIsDetailShown}
         />
         )}
       <RecipeBrief

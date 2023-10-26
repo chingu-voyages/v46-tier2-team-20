@@ -1,7 +1,6 @@
 import { nanoid } from 'nanoid';
 
 export default function Nutrition({ nutrition }) {
-  // Nutrition
   let nutritionEls = null;
   if (Object.keys(nutrition).length === 0) {
     return nutritionEls = null;
