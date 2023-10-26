@@ -6,8 +6,8 @@ export default function Categories({ tags }) {
     .map((tag) => (<p key={nanoid()} className="text-xs">{tag.display_name}</p>));
 
   return (
-    <>
+    <div className="mt-12 border-t-2 border-grey-300">
       {categoryEls}
-    </>
+    </div>
   );
 }
