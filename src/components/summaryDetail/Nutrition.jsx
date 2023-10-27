@@ -8,7 +8,7 @@ export default function Nutrition({ nutrition }) {
   }
 
   if (Object.keys(nutrition).length === 0) {
-    return nutritionEls = null;
+    return nutritionEls = <p text-xs>No nutrition data available</p>;
   }
   nutritionEls = Object.entries(nutrition)
     .filter(([key, value]) => key !== 'updated_at')
