@@ -8,7 +8,7 @@ function Footer() {
         <p>
           © 2023 All rights reserved
         </p>
-        <div className="dev-info flex gap-4">
+        <div className="flex gap-2">
           <div>
             <p>Designer:</p>
             <p>Developers:</p>
