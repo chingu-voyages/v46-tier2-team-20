@@ -85,7 +85,6 @@ function App() {
           </p>
         ) : <p>{ error }</p> }
         <Footer />
-        ?
       </div>
       {/*  */}
       <RecipeBrief recipes={recipes} />
