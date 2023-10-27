@@ -17,8 +17,9 @@
     display: flex;
     flex-direction: column;
     align-items: center;
-    text-align: center;
+    /* text-align: center; */
     justify-content: center;
+    gap: 0.5rem;
     line-height: 1rem;
     padding: 1rem;
 }
@@ -45,9 +46,9 @@
 }
 
 @media screen and (min-width: 992px) {
-    .dev-info {
+    /* .dev-info {
         text-align: left;
-    }
+    } */
 
     .footer-container {
         flex-direction:row;
