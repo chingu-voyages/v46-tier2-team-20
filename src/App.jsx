@@ -1,6 +1,10 @@
 import { useState } from 'react';
 import './App.css';
+
 import axios from 'axios';
+
+import RecipeBrief from './components/RecipesDisplay/RecipeBrief';
+import Header from './components/header/Header';
 import SearchBar from './components/searchBar/SearchBar';
 
 function App() {
@@ -25,7 +29,7 @@ function App() {
         q: ingredientString,
       },
       headers: {
-        'X-RapidAPI-Key': '76d7fe0a0fmsh0e82783d702bde2p14d53ajsn1fb5e9f06c51',
+        'X-RapidAPI-Key': import.meta.env.VITE_API_KEY,
         'X-RapidAPI-Host': 'tasty.p.rapidapi.com',
       },
     };
@@ -38,6 +42,7 @@ function App() {
         // console.log(response.data.results);
         setRecipes(response.data.results);
       } else {
+        // This error message should be replaced with the error component
         setError('No recipes found - try a different ingredient');
       }
       setIsSearching(false);
@@ -48,12 +53,15 @@ function App() {
   }
 
   // I'm thinking this function will be passed as props to the search bar
+  // I'm thinking this function will be passed as props to the search bar
   function handleSearch(e) {
     e.preventDefault();
 
     if (ingredients.length === 0) {
-      setError('Please input an ingredient');
-      return;
+      setError('Please input an ingredient(s)');
+      // return;
+    } else if (ingredients.length < 2) {
+      setError('Input must be a least 2 characters');
     }
 
     fetchData(ingredients);
@@ -61,6 +69,7 @@ function App() {
 
   return (
     <div>
+      <Header />
       <SearchBar
         handleSearch={handleSearch}
         setIngredients={setIngredients}
@@ -73,6 +82,7 @@ function App() {
           recipes found!
         </p>
       ) : <p>{error}</p>}
+      <RecipeBrief recipes={recipes} />
     </div>
   );
 }
