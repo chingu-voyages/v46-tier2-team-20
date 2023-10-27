@@ -73,6 +73,11 @@ function App() {
     setIsDetailShown((prevIsDetailShown) => !prevIsDetailShown);
   }
 
+  function handleSummaryDetailClose() {
+    toggleIsDetailShown();
+    setRecipeDetail(null);
+  }
+
   return (
     <div className="relative">
       <div>
@@ -104,12 +109,15 @@ function App() {
       {isDetailShown
         && (
           <>
-            <BackgroundBlur />
+            <BackgroundBlur
+              handleSummaryDetailClose={handleSummaryDetailClose}
+            />
             <SummaryDetail
               recipeDetail={recipeDetail}
               setRecipeDetail={setRecipeDetail}
               isDetailShown={isDetailShown}
               toggleIsDetailShown={toggleIsDetailShown}
+              handleSummaryDetailClose={handleSummaryDetailClose}
             />
           </>
         )}
