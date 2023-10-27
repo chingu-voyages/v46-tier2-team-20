@@ -6,6 +6,7 @@ import axios from 'axios';
 import RecipeBrief from './components/recipeBrief/RecipeBrief';
 import Header from './components/header/Header';
 import SummaryDetail from './components/summaryDetail/SummaryDetail';
+import BackgroundBlur from './components/backgroundBlur/BackgroundBlur';
 
 function App() {
   const [ingredients, setIngredients] = useState('');
@@ -73,10 +74,9 @@ function App() {
   }
 
   return (
-    <>
+    <div className="relative">
       <div>
         <Header />
-
         <form onSubmit={handleSearch}>
           <label>Ingredient(s)</label>
           <input
@@ -96,21 +96,25 @@ function App() {
           </p>
         ) : <p>{error}</p>}
       </div>
-      {isDetailShown
-        && (
-        <SummaryDetail
-          recipeDetail={recipeDetail}
-          setRecipeDetail={setRecipeDetail}
-          isDetailShown={isDetailShown}
-          toggleIsDetailShown={toggleIsDetailShown}
-        />
-        )}
       <RecipeBrief
         recipes={recipes}
         handleRecipeBriefClick={handleRecipeBriefClick}
       />
 
-    </>
+      {isDetailShown
+        && (
+          <>
+            <BackgroundBlur />
+            <SummaryDetail
+              recipeDetail={recipeDetail}
+              setRecipeDetail={setRecipeDetail}
+              isDetailShown={isDetailShown}
+              toggleIsDetailShown={toggleIsDetailShown}
+            />
+          </>
+        )}
+
+    </div>
   );
 }
 

@@ -1,3 +1,5 @@
+import './SummaryDetail.css';
+
 import Ingredients from './Ingredients';
 import Nutrition from './Nutrition';
 import Instructions from './Instructions';
@@ -20,7 +22,7 @@ export default function SummaryDetail({
 
       <button onClick={handleSummaryDetailClose} className="self-end fixed top-4 w-4 h-4 bg-gray-700 rounded-full mr-4 p-4 text-white inline-flex items-center justify-center">X</button>
 
-      <div className="h-1/4">
+      <div className="self-center h-1/4">
         <img src={thumbnailUrl} className="object-cover max-h-full" />
       </div>
 
