@@ -1,6 +1,10 @@
 import { useState } from 'react';
 import './App.css';
+
 import axios from 'axios';
+
+import RecipeBrief from './components/RecipesDisplay/RecipeBrief';
+import Header from './components/header/Header';
 
 function App() {
   // I'm thinking setIngredients will be passed as props to the search bar
@@ -23,7 +27,7 @@ function App() {
         q: ingredientString,
       },
       headers: {
-        'X-RapidAPI-Key': '76d7fe0a0fmsh0e82783d702bde2p14d53ajsn1fb5e9f06c51',
+        'X-RapidAPI-Key': import.meta.env.VITE_API_KEY,
         'X-RapidAPI-Host': 'tasty.p.rapidapi.com',
       },
     };
@@ -58,29 +62,31 @@ function App() {
   }
 
   return (
-    <div>
-      <h1 className="text-3xl text-orange-500 font-bold underline text-center">
-        Recipe App
-      </h1>
-      <form onSubmit={handleSearch}>
-        <label>Ingredient(s)</label>
-        <input
-          type="text"
-          name="ingredients"
-          value={ingredients}
-          onChange={(e) => setIngredients(e.target.value)}
-        />
-        <button className="search-btn" type="submit" disabled={isSearching}>Search!</button>
-      </form>
-      {isSearching && <p>Searching...</p>}
-      {recipes ? (
-        <p>
-          {recipes.length}
-          {' '}
-          recipes found!
-        </p>
-      ) : <p>{error}</p>}
-    </div>
+    <>
+      <div>
+        <Header />
+        <form onSubmit={handleSearch}>
+          <label>Ingredient(s)</label>
+          <input
+            type="text"
+            name="ingredients"
+            value={ingredients}
+            onChange={(e) => setIngredients(e.target.value)}
+          />
+          <button className="search-btn" type="submit" disabled={isSearching}>Search!</button>
+        </form>
+        {isSearching && <p>Searching...</p>}
+        {recipes ? (
+          <p>
+            {recipes.length}
+            {' '}
+            recipes found!
+          </p>
+        ) : <p>{error}</p>}
+      </div>
+      {/*  */}
+      <RecipeBrief recipes={recipes} />
+    </>
   );
 }
 
