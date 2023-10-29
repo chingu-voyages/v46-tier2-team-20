@@ -1,10 +1,27 @@
 .recipe-preview-container{
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  justify-content: flex-end;
+
   width: 400px;
   height: 266px;
   margin-bottom: 31px;
-  align-items: flex-start;
-  justify-content: flex-end;
-  display: flex;
-  flex-direction: column;
-  object-fit: contain;
+  border-radius: 24px;
+  background: linear-gradient(180deg, rgba(0, 0, 0, 0.00) 73.77%, #000 100%), lightgray 50% ;
+
+  font-family: Poppins;
+
+  /* shadow elevation 1 */
+  box-shadow: 0px 0px 30px 0px rgba(21, 26, 30, 0.06);
+}
+
+.recipe-name{
+  padding: 0px 23px 13px;
+
+  font-size: 24px;
+  font-weight: 600;
+  color: #FFF;
+
+  line-height: normal;
 }
