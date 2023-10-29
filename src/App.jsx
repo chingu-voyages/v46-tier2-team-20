@@ -23,7 +23,7 @@ function App() {
       url: 'https://tasty.p.rapidapi.com/recipes/list',
       params: {
         from: '0',
-        size: '2',
+        size: '20',
         q: ingredientString,
       },
       headers: {

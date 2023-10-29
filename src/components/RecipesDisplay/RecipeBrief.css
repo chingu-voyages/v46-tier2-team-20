@@ -1,0 +1,10 @@
+.recipe-preview-container{
+  width: 400px;
+  height: 266px;
+  margin-bottom: 31px;
+  align-items: flex-start;
+  justify-content: flex-end;
+  display: flex;
+  flex-direction: column;
+  object-fit: contain;
+}
