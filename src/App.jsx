@@ -5,6 +5,7 @@ import axios from 'axios';
 
 import RecipeBrief from './components/RecipesDisplay/RecipeBrief';
 import Header from './components/header/Header';
+import Footer from './components/footer/Footer';
 
 function App() {
   // I'm thinking setIngredients will be passed as props to the search bar
@@ -82,7 +83,8 @@ function App() {
             {' '}
             recipes found!
           </p>
-        ) : <p>{error}</p>}
+        ) : <p>{ error }</p> }
+        <Footer />
       </div>
       {/*  */}
       <RecipeBrief recipes={recipes} />
