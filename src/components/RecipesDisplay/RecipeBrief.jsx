@@ -1,13 +1,12 @@
 import React from 'react';
-import { nanoid } from 'nanoid';
 
 import './RecipeBrief.css';
 
 export default function RecipesBrief({ recipes }) {
   const data = recipes && recipes.map((recipe) => {
-    const { name, thumbnail_url: thumbnailUrl } = recipe;
+    const { name, thumbnail_url: thumbnailUrl, id } = recipe;
     return (
-      <div key={nanoid()} className="relative">
+      <div key={id} className="relative">
         <h1 className="absolute bottom-0 left-0 p-4 text-black text-xl">{name}</h1>
         <img src={thumbnailUrl} alt={name} className="recipe-img w-full h-auto rounded-xl" />
       </div>
