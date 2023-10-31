@@ -6,3 +6,21 @@
   border: 2px solid red;
 }
 
+.recipe-img{
+  max-width: 342px;
+  max-height: 216px;
+}
+
+@media (min-width: 640px) {
+  .recipe-img{
+    max-width: 324px;
+  }
+}
+
+@media (min-width: 1024px) {
+  .recipe-img{
+    max-width: 357px;
+    max-height: 238px;
+  }
+  
+}

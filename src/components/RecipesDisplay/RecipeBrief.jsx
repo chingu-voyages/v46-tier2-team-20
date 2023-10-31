@@ -7,15 +7,15 @@ export default function RecipesBrief({ recipes }) {
   const data = recipes && recipes.map((recipe) => {
     const { name, thumbnail_url: thumbnailUrl } = recipe;
     return (
-      <div key={nanoid()} className="recipe-card">
-        <h1 className="recipe-name">{name}</h1>
-        <img src={thumbnailUrl} alt="" className="recipe-img" />
+      <div key={nanoid()} className="relative">
+        <h1 className="absolute bottom-0 left-0 p-4 text-black text-xl">{name}</h1>
+        <img src={thumbnailUrl} alt={name} className="recipe-img w-full h-auto rounded-xl" />
       </div>
     );
   });
   return (
     <div className="recipe-brief-container mx-auto w-full max-w-screen-xl">
-      <div className="grid grid-cols-1 md:grid-cols-3 lg:grid-cols-3 xl:grid-cols-3 gap-4">
+      <div className="grid grid-cols-1 md:grid-cols-3 lg:grid-cols-3 xl:grid-cols-3 gap-12">
         {data}
       </div>
     </div>
