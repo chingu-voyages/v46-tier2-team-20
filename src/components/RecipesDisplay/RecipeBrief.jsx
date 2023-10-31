@@ -1,5 +1,4 @@
 import React from 'react';
-
 import './RecipeBrief.css';
 
 export default function RecipesBrief({ recipes }) {
@@ -7,7 +6,7 @@ export default function RecipesBrief({ recipes }) {
     const { name, thumbnail_url: thumbnailUrl, id } = recipe;
     return (
       <div key={id} className="relative">
-        <h1 className="absolute bottom-0 left-0 p-4 text-black text-xl">{name}</h1>
+        <h1 className="absolute bottom-0 left-0 p-4 text-white text-xl md:text-2xl lg:text-3xl xl:text-3xl">{name}</h1>
         <img src={thumbnailUrl} alt={name} className="recipe-img w-full h-auto rounded-xl" />
       </div>
     );
