@@ -10,8 +10,11 @@
 }
 
 .recipe-card{
-  width: 300px;
-  height: 225px;
+  width: 100%;
+  max-width: 1000px;
+  padding-top: 55%;
+  /* width: 300px;
+  height: 225px; */
   margin-bottom: 1.94em; /* 31px */
   border-radius: 24px;
   background-position: center;
