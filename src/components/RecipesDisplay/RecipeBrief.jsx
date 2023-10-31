@@ -14,8 +14,10 @@ export default function RecipesBrief({ recipes }) {
     );
   });
   return (
-    <div className="recipe-brief-container grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 xl:grid-cols-3 gap-x-4 gap-y-4">
-      {data}
+    <div className="recipe-brief-container mx-auto w-full max-w-screen-xl">
+      <div className="grid grid-cols-1 md:grid-cols-3 lg:grid-cols-3 xl:grid-cols-3 gap-4">
+        {data}
+      </div>
     </div>
 
   );
