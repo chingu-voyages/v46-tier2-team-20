@@ -2,6 +2,7 @@ import React from 'react';
 import './RecipeBrief.css';
 
 export default function RecipesBrief({ recipes }) {
+  console.log(recipes);
   const data = recipes && recipes.map((recipe) => {
     const { name, thumbnail_url: thumbnailUrl, id } = recipe;
     return (
@@ -17,6 +18,5 @@ export default function RecipesBrief({ recipes }) {
         {data}
       </div>
     </div>
-
   );
 }

@@ -34,6 +34,7 @@ function App() {
 
     try {
       const response = await axios.request(options);
+      console.log('response: ', response);
       if (response.data.count > 0) {
         // The returned data object has two properties - count and results.
         // Results is an array of recipe data objects.
@@ -44,7 +45,9 @@ function App() {
       }
       setIsSearching(false);
     } catch (error) {
-      setError(error);
+      console.log('error: ', error);
+      // Updated below as it was giving an error on Console, that object can't render
+      setError(error.message);
       setIsSearching(false);
     }
   }
