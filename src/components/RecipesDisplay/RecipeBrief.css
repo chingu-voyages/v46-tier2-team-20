@@ -3,9 +3,37 @@
   font-family: Poppins;
 }
 
+.recipe-card{
+  cursor: pointer;
+}
+
+.recipe-img:hover{
+  box-shadow: 0 0 1rem rgba(0,0,0,.6);
+}
+
+.recipe-name{
+  text-shadow: 1px 1px #4c4d50;
+  font-size: 16px;
+}
+
 .recipe-img{
   max-width: 342px;
   max-height: 216px;
+  aspect-ratio: 1 / 1;
+  object-fit: cover;
+}
+
+@media (min-width: 375px) {
+  .recipe-name{
+    font-size: 18px;
+  }  
+}
+
+@media (min-width: 465px) and (max-width: 639px){
+  .recipe-brief-grid{
+    margin: auto;
+    max-width: 342px;
+  }
 }
 
 @media (min-width: 640px) {
