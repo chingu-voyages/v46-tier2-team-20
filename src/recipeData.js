@@ -1,4 +1,4 @@
-const data = {
+export default {
   "count": 9785,
   "results": [
     {
