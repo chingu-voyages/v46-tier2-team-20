@@ -1,5 +1,6 @@
 import React from 'react';
 import RecipesBrief from './RecipeBrief';
+import './RecipeContainer.css';
 
 export default function RecipeContainer({ recipes }) {
   return (

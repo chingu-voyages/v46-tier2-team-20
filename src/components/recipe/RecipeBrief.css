@@ -1,8 +1,3 @@
-.recipe-brief-container{
-  padding: 60px;  
-  font-family: Poppins;
-}
-
 .recipe-card{
   cursor: pointer;
 }
@@ -13,7 +8,7 @@
 
 .recipe-name{
   text-shadow: 1px 1px #4c4d50;
-  font-size: 16px;
+  font-size: 1rem;
 }
 
 .recipe-img{
@@ -25,7 +20,7 @@
 
 @media (min-width: 375px) {
   .recipe-name{
-    font-size: 18px;
+    font-size: 1.25rem;
   }  
 }
 
