@@ -3,7 +3,7 @@ import './App.css';
 
 import axios from 'axios';
 
-import RecipeBrief from './components/RecipesDisplay/RecipeBrief';
+import RecipeContainer from './components/recipe/RecipeContainer';
 import Header from './components/header/Header';
 
 function App() {
@@ -45,7 +45,6 @@ function App() {
       }
       setIsSearching(false);
     } catch (error) {
-      console.log('error: ', error);
       // Updated below as it was giving an error on Console, that object can't render
       setError(error.message);
       setIsSearching(false);
@@ -88,7 +87,7 @@ function App() {
         ) : <p>{error}</p>}
       </div>
       {/*  */}
-      <RecipeBrief recipes={recipes} />
+      <RecipeContainer recipes={recipes} />
     </>
   );
 }

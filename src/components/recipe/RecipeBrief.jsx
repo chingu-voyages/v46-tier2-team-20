@@ -2,7 +2,6 @@ import React from 'react';
 import './RecipeBrief.css';
 
 export default function RecipesBrief({ recipes }) {
-  console.log(recipes);
   const data = recipes && recipes.map((recipe) => {
     const { name, thumbnail_url: thumbnailUrl, id } = recipe;
     return (
@@ -13,10 +12,8 @@ export default function RecipesBrief({ recipes }) {
     );
   });
   return (
-    <div className="recipe-brief-container mx-auto w-full max-w-screen-xl">
-      <div className="recipe-brief-grid grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-3 xl:grid-cols-3 gap-12">
-        {data}
-      </div>
+    <div className="recipe-brief-grid grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-3 xl:grid-cols-3 gap-12">
+      {data}
     </div>
   );
 }
