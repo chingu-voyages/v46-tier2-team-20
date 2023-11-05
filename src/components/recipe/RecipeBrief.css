@@ -2,10 +2,6 @@
   cursor: pointer;
 }
 
-.recipe-img:hover{
-  box-shadow: 0 0 1rem rgba(0,0,0,.6);
-}
-
 .recipe-name{
   text-shadow: 1px 1px #4c4d50;
   font-size: 1rem;
@@ -16,6 +12,10 @@
   max-height: 216px;
   aspect-ratio: 1 / 1;
   object-fit: cover;
+
+  &:hover{
+    box-shadow: 0 0 1rem rgba(0,0,0,.6);
+  }
 }
 
 @media (min-width: 375px) {
