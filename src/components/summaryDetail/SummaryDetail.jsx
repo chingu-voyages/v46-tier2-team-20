@@ -8,7 +8,7 @@ import Instructions from './Instructions';
 import Categories from './Categories';
 
 export default function SummaryDetail({
-  recipeDetail, setRecipeDetail, isDetailShown, toggleIsDetailShown, handleSummaryDetailClose,
+  recipeDetail, isDetailShown, handleSummaryDetailClose,
 }) {
   const [isNutritionShown, setIsNutritionShown] = useState(false);
 
