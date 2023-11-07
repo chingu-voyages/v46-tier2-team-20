@@ -15,9 +15,10 @@ function App() {
   const [recipes, setRecipes] = useState(null);
   const [recipeDetail, setRecipeDetail] = useState(null);
   const [isDetailShown, setIsDetailShown] = useState(false);
-//   const [isSearching, setIsSearching] = useState(false);
+  //   const [isSearching, setIsSearching] = useState(false);
 
   const [error, setError] = useState('Add an ingredient to search!');
+  const [errorIsDisplayed, setErrorIsDisplayed] = useState(false);
 
   // This function could potentially be moved out to a "utils" folder?
   // In that case, I think the response or error could be returned,
@@ -48,15 +49,15 @@ function App() {
       } else {
         // This error message should be replaced with the error component
         setError('No recipes found - try a different ingredient');
+        setErrorIsDisplayed(true);
       }
       // setIsSearching(false);
     } catch (error) {
-  
       // setIsSearching(false);
       // Updated below as it was giving an error on Console, that object can't render
       setError(error.message);
+      setErrorIsDisplayed(true);
       setIsSearching(false);
-
     }
   }
 
@@ -76,11 +77,12 @@ function App() {
 
   return (
     <div className="relative">
-        <Header />
-        <SearchBar fetchData={fetchData} />
-        <RecipeContainer recipes={recipes} handleRecipeBriefClick={handleRecipeBriefClick}/>
+      <Header />
+      <SearchBar fetchData={fetchData} />
+      { errorIsDisplayed && <ErrorMessage message={error} /> }
+      <RecipeContainer recipes={recipes} handleRecipeBriefClick={handleRecipeBriefClick} />
 
-        {isDetailShown
+      {isDetailShown
           && (
             <>
               <BackgroundBlur
