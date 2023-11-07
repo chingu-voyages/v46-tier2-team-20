@@ -1,5 +1,3 @@
-import { nanoid } from 'nanoid';
-
 export default function Categories({ tags }) {
   const categoryList = tags
     .filter((tag) => (tag.type === 'dietary' || tag.type === 'meal' || tag.type === 'difficulty') && !['Meal', 'Dietary', 'Difficulty'].includes(tag.display_name))
