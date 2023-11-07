@@ -3,9 +3,11 @@ import './App.css';
 
 import axios from 'axios';
 
-import RecipeBrief from './components/RecipesDisplay/RecipeBrief';
+import RecipeContainer from './components/recipeDisplay/RecipeContainer';
 import Header from './components/header/Header';
 import SearchBar from './components/searchBar/SearchBar';
+import Footer from './components/footer/Footer';
+
 
 function App() {
   // I'm thinking setIngredients will be passed as props to the search bar
@@ -35,6 +37,7 @@ function App() {
 
     try {
       const response = await axios.request(options);
+      console.log('response: ', response);
       if (response.data.count > 0) {
         // The returned data object has two properties - count and results.
         // Results is an array of recipe data objects.
@@ -46,18 +49,20 @@ function App() {
       }
       // setIsSearching(false);
     } catch (error) {
-      setError(error);
+  
       // setIsSearching(false);
+      // Updated below as it was giving an error on Console, that object can't render
+      setError(error.message);
+      setIsSearching(false);
+
     }
   }
 
   return (
     <div>
       <Header />
-      <SearchBar
-        fetchData={fetchData}
-      />
-      <RecipeBrief recipes={recipes} />
+      <SearchBar fetchData={fetchData} />
+      <RecipeContainer recipes={recipes} />
     </div>
   );
 }

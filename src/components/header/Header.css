@@ -7,7 +7,7 @@
     flex-direction: column;
     justify-content: center;
     gap: 0.625rem; 
-    background: linear-gradient(0deg, rgba(35, 35, 35, 0.40) 0%, rgba(35, 35, 35, 0.40) 100%), url('/public/header_img.jpg'), lightgray 50% / cover no-repeat;
+    background: linear-gradient(0deg, rgba(35, 35, 35, 0.40) 0%, rgba(35, 35, 35, 0.40) 100%), url('/header_img.jpg'), lightgray 50% / cover no-repeat;
     background-size: cover;
     color: #FFF;
     text-shadow: 0px 0px 4px rgba(0, 0, 0, 0.30);
@@ -26,6 +26,12 @@
 
 }
 
+@media screen and (min-width: 767px) {
+    .header  {
+        padding: 0 8rem;
+    }
+}
+
 @media screen and (min-width: 992px) {
     .header h1 {
         font-size: 2.5rem;
@@ -33,12 +39,6 @@
 
     .header h2 {
         font-size: 1.5rem;
-    }
-}
-
-@media screen and (min-width: 767px) {
-    .header  {
-        padding: 0 8rem;
     }
 }
 
