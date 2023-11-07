@@ -3,7 +3,7 @@ import './App.css';
 
 import axios from 'axios';
 
-import RecipeBrief from './components/RecipesDisplay/RecipeBrief';
+import RecipeContainer from './components/recipeDisplay/RecipeContainer';
 import Header from './components/header/Header';
 import Footer from './components/footer/Footer';
 
@@ -35,6 +35,7 @@ function App() {
 
     try {
       const response = await axios.request(options);
+      console.log('response: ', response);
       if (response.data.count > 0) {
         // The returned data object has two properties - count and results.
         // Results is an array of recipe data objects.
@@ -45,7 +46,8 @@ function App() {
       }
       setIsSearching(false);
     } catch (error) {
-      setError(error);
+      // Updated below as it was giving an error on Console, that object can't render
+      setError(error.message);
       setIsSearching(false);
     }
   }
@@ -87,7 +89,7 @@ function App() {
         <Footer />
       </div>
       {/*  */}
-      <RecipeBrief recipes={recipes} />
+      <RecipeContainer recipes={recipes} />
     </>
   );
 }

@@ -1,0 +1,46 @@
+.recipe-card{
+  cursor: pointer;
+}
+
+.recipe-name{
+  text-shadow: 1px 1px #4c4d50;
+  font-size: 1rem;
+}
+
+.recipe-img{
+  max-width: 342px;
+  max-height: 216px;
+  aspect-ratio: 1 / 1;
+  object-fit: cover;
+
+  &:hover{
+    box-shadow: 0 0 1rem rgba(0,0,0,.6);
+  }
+}
+
+@media (min-width: 375px) {
+  .recipe-name{
+    font-size: 1.25rem;
+  }  
+}
+
+@media (min-width: 465px) and (max-width: 639px){
+  .recipe-brief-grid{
+    margin: auto;
+    max-width: 342px;
+  }
+}
+
+@media (min-width: 640px) {
+  .recipe-img{
+    max-width: 324px;
+  }
+}
+
+@media (min-width: 1024px) {
+  .recipe-img{
+    max-width: 357px;
+    max-height: 238px;
+  }
+  
+}
