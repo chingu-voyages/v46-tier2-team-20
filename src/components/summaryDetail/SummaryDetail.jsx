@@ -63,6 +63,7 @@ export default function SummaryDetail({
 
         <h3 className="font-semibold">Instructions</h3>
         <Instructions
+          recipeId={recipeId}
           instructions={instructions}
         />
 

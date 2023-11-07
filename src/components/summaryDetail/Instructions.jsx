@@ -1,8 +1,6 @@
-import { nanoid } from 'nanoid';
-
-export default function Instructions({ instructions }) {
+export default function Instructions({ recipeId, instructions }) {
   const instructionEls = instructions.map((instruction, index) => (
-    <p key={nanoid()} className="pt-4 text-xs">
+    <p key={recipeId + instruction.id} className="pt-4 text-xs">
       {index + 1}
       {'. '}
       {instruction.display_text}
