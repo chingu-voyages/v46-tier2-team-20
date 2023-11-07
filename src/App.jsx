@@ -19,6 +19,7 @@ function App() {
 
   const [error, setError] = useState('Add an ingredient to search!');
   const [errorIsDisplayed, setErrorIsDisplayed] = useState(false);
+  const [errorCode, setErrorCode] = useState(200);
 
   // This function could potentially be moved out to a "utils" folder?
   // In that case, I think the response or error could be returned,
@@ -41,6 +42,7 @@ function App() {
     };
 
     try {
+      setErrorIsDisplayed(false);
       const response = await axios.request(options);
       if (response.data.count > 0) {
         // The returned data object has two properties - count and results.
@@ -57,6 +59,7 @@ function App() {
       // Updated below as it was giving an error on Console, that object can't render
       setError(error.message);
       setErrorIsDisplayed(true);
+      setErrorCode(error.response.status);
       setIsSearching(false);
     }
   }
@@ -79,7 +82,7 @@ function App() {
     <div className="relative">
       <Header />
       <SearchBar fetchData={fetchData} />
-      { errorIsDisplayed && <ErrorMessage message={error} /> }
+      { errorIsDisplayed && <ErrorMessage message={error} errorCode={errorCode} /> }
       <RecipeContainer recipes={recipes} handleRecipeBriefClick={handleRecipeBriefClick} />
 
       {isDetailShown
