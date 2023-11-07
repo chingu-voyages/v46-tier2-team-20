@@ -1,6 +1,4 @@
-import { nanoid } from 'nanoid';
-
-export default function Nutrition({ nutrition }) {
+export default function Nutrition({ recipeId, nutrition }) {
   let nutritionEls = null;
 
   function capitalize(word) {
@@ -14,7 +12,7 @@ export default function Nutrition({ nutrition }) {
     .filter(([key, value]) => key !== 'updated_at')
     .sort(([keyA], [keyB]) => keyA.localeCompare(keyB))
     .map(([key, value]) => (
-      <p key={nanoid()} className="border-t text-xs">
+      <p key={recipeId + capitalize(key)} className="border-t text-xs">
         {capitalize(key)}
         {': '}
         {value}
