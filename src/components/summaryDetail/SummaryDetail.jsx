@@ -13,7 +13,7 @@ export default function SummaryDetail({
   const [isNutritionShown, setIsNutritionShown] = useState(false);
 
   const {
-    name, thumbnail_url: thumbnailUrl, video_url: videoUrl, nutrition, instructions, sections, tags,
+    name, id: recipeId, thumbnail_url: thumbnailUrl, video_url: videoUrl, nutrition, instructions, sections, tags,
   } = recipeDetail;
 
   function toggleNutrition() {
@@ -37,6 +37,7 @@ export default function SummaryDetail({
           <div>
             <h3 className="font-semibold pb-5">Ingredients</h3>
             <Ingredients
+              recipeId={recipeId}
               sections={sections}
             />
           </div>
