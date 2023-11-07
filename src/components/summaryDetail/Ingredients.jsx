@@ -1,5 +1,3 @@
-import { nanoid } from 'nanoid';
-
 export default function Ingredients({ recipeId, sections }) {
   
   const ingredientEls = sections.map((section) => section.components.map((component) => (<p key={recipeId + component.id} className="pb-2 text-xs">{component.raw_text}</p>)));
