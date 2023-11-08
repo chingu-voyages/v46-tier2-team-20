@@ -51,12 +51,12 @@ export default function SummaryDetail({
               </button>
             </div>
             {isNutritionShown
-              && 
-              <Nutrition 
+              && (
+              <Nutrition
                 recipeId={recipeId}
-                nutrition={nutrition} 
+                nutrition={nutrition}
               />
-            }
+              )}
 
           </div>
         </div>
