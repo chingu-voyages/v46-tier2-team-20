@@ -85,7 +85,7 @@ function App() {
       { errorIsDisplayed && <ErrorMessage message={error} errorCode={errorCode} /> }
       <RecipeContainer recipes={recipes} handleRecipeBriefClick={handleRecipeBriefClick} />
 
-      {isDetailShown
+      { isDetailShown
           && (
             <>
               <BackgroundBlur
