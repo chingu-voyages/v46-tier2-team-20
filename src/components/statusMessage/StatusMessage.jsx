@@ -1,7 +1,7 @@
 import React from 'react';
-import './ErrorMessage.css';
+import './StatusMessage.css';
 
-function ErrorMessage({ message, errorCode }) {
+function StatusMessage({ message, errorCode }) {
   let imageurl = './public/';
 
   switch ((`${errorCode}`)[0]) {
@@ -29,4 +29,4 @@ function ErrorMessage({ message, errorCode }) {
   );
 }
 
-export default ErrorMessage;
+export default StatusMessage;
