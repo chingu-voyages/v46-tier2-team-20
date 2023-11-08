@@ -26,7 +26,7 @@ export default function SummaryDetail({
       <button onClick={handleSummaryDetailClose} className="self-end fixed top-4 w-4 h-4 bg-gray-700 rounded-full mr-4 p-4 text-white inline-flex items-center justify-center">X</button>
 
       <div className="self-center h-1/4">
-        <img src={thumbnailUrl} className="object-fit position-center max-h-full" />
+        <img src={thumbnailUrl} className="object-fit position-center max-h-full rounded-md pt-4" />
       </div>
 
       <div className="w-11/12 bg-pink">
