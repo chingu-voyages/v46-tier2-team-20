@@ -59,15 +59,15 @@ function App() {
 
   function handleRecipeCardClick(recipe) {
     setRecipeDetail(recipe);
-    toggleIsDetailShown();
+    setIsDetailShown(true);
   }
 
-  function toggleIsDetailShown() {
-    setIsDetailShown((prevIsDetailShown) => !prevIsDetailShown);
-  }
+  // function toggleIsDetailShown() {
+  //   setIsDetailShown((prevIsDetailShown) => !prevIsDetailShown);
+  // }
 
   function handleSummaryDetailClose() {
-    toggleIsDetailShown();
+    setIsDetailShown(false);
     setRecipeDetail(null);
   }
 
