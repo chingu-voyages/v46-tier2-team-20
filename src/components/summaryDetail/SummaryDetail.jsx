@@ -67,11 +67,14 @@ export default function SummaryDetail({
           instructions={instructions}
         />
 
-        <a href={videoUrl} target="_blank" className="flex items-center gap-3 py-10 text-xs" rel="noreferrer">
-          <FiVideo />
-          {' '}
-          HOW TO VIDEO
-        </a>
+        {videoUrl
+          && (
+          <a href={videoUrl} target="_blank" className="flex items-center gap-3 pt-10 text-xs" rel="noreferrer">
+            <FiVideo />
+            {' '}
+            HOW TO VIDEO
+          </a>
+          )}
 
         <Categories
           tags={tags}
