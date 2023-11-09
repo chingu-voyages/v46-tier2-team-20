@@ -14,7 +14,7 @@ function App() {
   const [recipes, setRecipes] = useState(null);
   const [recipeDetail, setRecipeDetail] = useState(null);
   const [isDetailShown, setIsDetailShown] = useState(false);
-//   const [isSearching, setIsSearching] = useState(false);
+  //   const [isSearching, setIsSearching] = useState(false);
 
   const [error, setError] = useState('Add an ingredient to search!');
 
@@ -50,12 +50,10 @@ function App() {
       }
       // setIsSearching(false);
     } catch (error) {
-  
       // setIsSearching(false);
       // Updated below as it was giving an error on Console, that object can't render
       setError(error.message);
       setIsSearching(false);
-
     }
   }
 
@@ -75,11 +73,11 @@ function App() {
 
   return (
     <div className="relative">
-        <Header />
-        <SearchBar fetchData={fetchData} />
-        <RecipeContainer recipes={recipes} handleRecipeBriefClick={handleRecipeBriefClick}/>
+      <Header />
+      <SearchBar fetchData={fetchData} />
+      <RecipeContainer recipes={recipes} handleRecipeBriefClick={handleRecipeBriefClick} />
 
-        {isDetailShown
+      {isDetailShown
           && (
             <>
               <BackgroundBlur
