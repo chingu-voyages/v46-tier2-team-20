@@ -29,7 +29,7 @@ function App() {
     setRecipes(data);
   }
 
-  function handleRecipeBriefClick(recipe) {
+  function handleRecipeCardClick(recipe) {
     setRecipeDetail(recipe);
     toggleIsDetailShown();
   }
@@ -47,7 +47,10 @@ function App() {
     <div className="relative">
       <Header />
       <SearchBar fetchData={fetchData} />
-      <RecipeContainer recipes={recipes} handleRecipeBriefClick={handleRecipeBriefClick} />
+      <RecipeContainer
+        recipes={recipes}
+        handleRecipeCardClick={handleRecipeCardClick}
+      />
 
       {isDetailShown
           && (
