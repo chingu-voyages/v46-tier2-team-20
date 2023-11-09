@@ -13,7 +13,7 @@ export default function SummaryDetail({
   const [isNutritionShown, setIsNutritionShown] = useState(false);
 
   const {
-    name, id: recipeId, thumbnail_url: thumbnailUrl, video_url: videoUrl, nutrition, instructions, sections, tags,
+    name, id: recipeId, thumbnail_url: thumbnailUrl, original_video_url: videoUrl, nutrition, instructions, sections, tags,
   } = recipeDetail;
 
   function toggleNutrition() {
@@ -67,7 +67,7 @@ export default function SummaryDetail({
           instructions={instructions}
         />
 
-        <a href={videoUrl} className="flex items-center gap-3 py-10 text-xs">
+        <a href={videoUrl} target="_blank" className="flex items-center gap-3 py-10 text-xs" rel="noreferrer">
           <FiVideo />
           {' '}
           HOW TO VIDEO
