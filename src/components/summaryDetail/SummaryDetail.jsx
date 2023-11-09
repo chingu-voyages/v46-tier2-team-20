@@ -20,14 +20,19 @@ export default function SummaryDetail({
     setIsNutritionShown((prevIsNutritionShown) => !prevIsNutritionShown);
   }
 
+  const containerStyle = {
+    transform: isDetailShown ? 'translateX(0)' : 'translateX(100%)',
+    transition: 'transform 1s ease',
+  };
+
   return (
     <>
       <button onClick={handleSummaryDetailClose} className="fixed top-4 right-4 w-4 h-4 bg-gray-700 rounded-full mr-4 p-4 text-white inline-flex items-center justify-center z-10" type="button">X</button>
 
-      <div className={`${isDetailShown ? 'show-summary-detail' : 'hide-summary-detail'} fixed top-0 right-0 h-full max-w-2xl bg-white max-h-screen overflow-y-scroll inline-flex flex-col items-center pb-4`}>
+      <div style={containerStyle} className="summary-detail-container fixed top-0 right-0 h-full bg-white max-h-screen overflow-y-scroll inline-flex flex-col items-center pb-4">
 
-        <div className="self-center h-1/4">
-          <img src={thumbnailUrl} className="object-fit position-center max-h-full rounded-md pt-4" />
+        <div className="recipe-detail-img h-1/3 w-full">
+          <img src={thumbnailUrl} className="w-full max-h-full object-cover object-center" />
         </div>
 
         <div className="w-11/12 bg-pink">

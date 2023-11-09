@@ -1,9 +1,14 @@
-.show-summary-detail {
-    transform: translateX(0); 
-    transition: transform 1s ease; 
+.summary-detail-container{
+  width: 100vw;
+}
+
+@media (min-width: 1024px) {
+  .summary-detail-container{
+    width: 612px;
   }
 
-.hide-summary-detail {
-    transform: translateX(100%);
-    transition: transform 1s ease;
+  .recipe-detail-img{
+    max-height: 322px;
+  }
+  
 }
