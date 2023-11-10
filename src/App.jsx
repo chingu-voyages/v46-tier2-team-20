@@ -71,7 +71,7 @@ function App() {
     <div className="relative">
       <Header />
       <SearchBar fetchData={fetchData} />
-      { isSearched && isEmpty(recipes) && <StatusMessage /> }
+      { isSearched && isEmpty(recipes) && !hasError && <StatusMessage /> }
       { hasError && <ErrorMessage /> }
       {isSearched && <RecipeContainer recipes={recipes} handleRecipeBriefClick={handleRecipeBriefClick} />}
       { isDetailShown
