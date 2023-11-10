@@ -3,29 +3,31 @@ import './App.css';
 
 import axios from 'axios';
 
+import { isEmpty } from 'lodash';
 import Header from './components/header/Header';
 import SummaryDetail from './components/summaryDetail/SummaryDetail';
 import BackgroundBlur from './components/backgroundBlur/BackgroundBlur';
 import RecipeContainer from './components/recipeDisplay/RecipeContainer';
 import SearchBar from './components/searchBar/SearchBar';
 import Footer from './components/footer/Footer';
-import ErrorMessage from './components/errorMessage/ErrorMessage';
+import StatusMessage from './components/statusMessage/StatusMessage';
+import ErrorMessage from './components/statusMessage/ErrorMessage';
 
 function App() {
   const [recipes, setRecipes] = useState(null);
   const [recipeDetail, setRecipeDetail] = useState(null);
   const [isDetailShown, setIsDetailShown] = useState(false);
-  //   const [isSearching, setIsSearching] = useState(false);
-
-  const [error, setError] = useState('Add an ingredient to search!');
-  const [errorIsDisplayed, setErrorIsDisplayed] = useState(false);
-  const [errorCode, setErrorCode] = useState(200);
+  const [isSearched, setIsSearched] = useState(false);
+  const [isSearching, setIsSearching] = useState(false);
+  const [hasError, setHasError] = useState(false);
 
   // This function could potentially be moved out to a "utils" folder?
   // In that case, I think the response or error could be returned,
   // and then used with setRecipes or setError here
   async function fetchData(ingredientString) {
-    // setIsSearching(true);
+    setIsSearched(true);
+    setRecipes({});
+    setHasError(false);
 
     const options = {
       method: 'GET',
@@ -42,26 +44,13 @@ function App() {
     };
 
     try {
-      setErrorIsDisplayed(false);
       const response = await axios.request(options);
-      if (response.data.count > 0) {
-        // The returned data object has two properties - count and results.
-        // Results is an array of recipe data objects.
-        setRecipes(response.data.results);
-      } else {
-        // This error message should be replaced with the error component
-        setError('No recipes found - try a different ingredient');
-        setErrorIsDisplayed(true);
-      }
-      // setIsSearching(false);
+      setRecipes(response.data.results);
     } catch (error) {
-      // setIsSearching(false);
-      // Updated below as it was giving an error on Console, that object can't render
-      setError(error.message);
-      setErrorIsDisplayed(true);
-      setErrorCode(error.response.status);
-      setIsSearching(false);
+      setRecipes(null);
+      setHasError(true);
     }
+    setIsSearching(false);
   }
 
   function handleRecipeBriefClick(recipe) {
@@ -82,9 +71,9 @@ function App() {
     <div className="relative">
       <Header />
       <SearchBar fetchData={fetchData} />
-      { errorIsDisplayed && <ErrorMessage message={error} errorCode={errorCode} /> }
-      <RecipeContainer recipes={recipes} handleRecipeBriefClick={handleRecipeBriefClick} />
-
+      { isSearched && isEmpty(recipes) && <StatusMessage /> }
+      { hasError && <ErrorMessage /> }
+      {isSearched && <RecipeContainer recipes={recipes} handleRecipeBriefClick={handleRecipeBriefClick} />}
       { isDetailShown
           && (
             <>
