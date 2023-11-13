@@ -1,6 +1,9 @@
 import { useState } from 'react';
 import './SummaryDetail.css';
-import { FiChevronUp, FiChevronDown, FiVideo } from 'react-icons/fi';
+import {
+  FiChevronUp, FiChevronDown, FiVideo,
+} from 'react-icons/fi';
+import { AiOutlineClose } from 'react-icons/ai';
 
 import Ingredients from './Ingredients';
 import Nutrition from './Nutrition';
@@ -16,6 +19,10 @@ export default function SummaryDetail({
     name, id: recipeId, thumbnail_url: thumbnailUrl, original_video_url: videoUrl, nutrition, instructions, sections, tags,
   } = recipeDetail;
 
+  const closeBtnStyles = {
+    color: 'white', zIndex: 11, position: 'fixed', top: '1 rem', right: '1 rem',
+  };
+
   function toggleNutrition() {
     setIsNutritionShown((prevIsNutritionShown) => !prevIsNutritionShown);
   }
@@ -27,7 +34,9 @@ export default function SummaryDetail({
 
   return (
     <>
-      <button onClick={handleSummaryDetailClose} className="fixed top-4 right-4 w-4 h-4 bg-gray-700 rounded-full mr-4 p-4 text-white inline-flex items-center justify-center z-10" type="button">X</button>
+      <button onClick={handleSummaryDetailClose} className="close-btn fixed top-4 right-4 w-4 h-4 bg-gray-700 rounded-full mr-4 p-4 text-white inline-flex items-center justify-center z-10" type="button">
+        <AiOutlineClose style={closeBtnStyles} />
+      </button>
 
       <div style={containerStyle} className="summary-detail-container fixed top-0 right-0 h-full bg-white max-h-screen overflow-y-scroll inline-flex flex-col items-center pb-4">
 
