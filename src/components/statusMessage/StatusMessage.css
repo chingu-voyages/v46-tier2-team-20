@@ -1,0 +1,29 @@
+.error-container {
+    margin-top: 1rem;
+    display: flex;
+    padding: 1rem;
+    text-align: center;
+    width: fit-content;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    border-radius: 15px;
+    box-shadow: 0 0 1rem rgba(0,0,0,.1);
+}
+
+.error-container h1 {
+    font-size: 1rem;
+    line-height:1rem;
+}
+
+img {
+    max-width: 40vh;
+    max-height: 40vh;
+    object-fit: cover;
+}
+
+@media (min-width: 465px) {
+  .error-container h1 {
+    font-size: 1.5rem;
+  }  
+}
