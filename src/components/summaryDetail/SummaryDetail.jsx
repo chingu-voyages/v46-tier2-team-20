@@ -15,89 +15,98 @@ export default function SummaryDetail({
 }) {
   const [isNutritionShown, setIsNutritionShown] = useState(false);
 
-  const {
-    name, id: recipeId, thumbnail_url: thumbnailUrl, original_video_url: videoUrl, nutrition, instructions, sections, tags,
-  } = recipeDetail;
+  let name; let recipeId; let thumbnailUrl; let videoUrl; let nutrition; let instructions; let sections; let
+    tags;
+
+  if (recipeDetail) {
+    ({
+      name, id: recipeId, thumbnail_url: thumbnailUrl, original_video_url: videoUrl, nutrition, instructions, sections, tags,
+    } = recipeDetail);
+  }
 
   const closeBtnStyles = {
     color: 'white', zIndex: 11, position: 'fixed', top: '1 rem', right: '1 rem',
   };
-
-  function toggleNutrition() {
-    setIsNutritionShown((prevIsNutritionShown) => !prevIsNutritionShown);
-  }
 
   const containerStyle = {
     transform: isDetailShown ? 'translateX(0)' : 'translateX(100%)',
     transition: 'transform 1s ease',
   };
 
+  function toggleNutrition() {
+    setIsNutritionShown((prevIsNutritionShown) => !prevIsNutritionShown);
+  }
+
   return (
+
     <>
-      <button onClick={handleSummaryDetailClose} className="close-btn fixed top-4 right-4 w-4 h-4 bg-gray-700 rounded-full mr-4 p-4 text-white inline-flex items-center justify-center z-10" type="button">
-        <AiOutlineClose style={closeBtnStyles} />
-      </button>
+      {recipeDetail && (
+        <div style={containerStyle} className="summary-detail-container fixed top-0 right-0 h-full bg-white max-h-screen overflow-y-scroll inline-flex flex-col items-center pb-4">
 
-      <div style={containerStyle} className="summary-detail-container fixed top-0 right-0 h-full bg-white max-h-screen overflow-y-scroll inline-flex flex-col items-center pb-4">
-
-        <div className="recipe-detail-img h-1/3 w-full">
-          <img src={thumbnailUrl} className="w-full max-h-full object-cover object-center" />
-        </div>
-
-        <div className="w-11/12 bg-pink">
-
-          <h2 className="self-start py-10 border-b-2 border-grey-300 text-3xl font-semibold">{name}</h2>
-
-          <div className="flex gap-20 max-w-11/12 py-10">
-            <div>
-              <h3 className="font-semibold pb-5">Ingredients</h3>
-              <Ingredients
-                recipeId={recipeId}
-                sections={sections}
-              />
-            </div>
-            <div>
-              <div className="flex gap-4 items-center pb-5">
-                <h3 className="font-semibold">Nutrition</h3>
-                <button onClick={toggleNutrition} type="button">
-                  {isNutritionShown
-                    ? <FiChevronUp />
-                    : <FiChevronDown />}
-                </button>
-              </div>
-              {isNutritionShown
-                && (
-                <Nutrition
-                  recipeId={recipeId}
-                  nutrition={nutrition}
-                />
-                )}
-
-            </div>
+          <div className="recipe-detail-img h-1/3 w-full">
+            <img src={thumbnailUrl} className="w-full max-h-full object-cover object-center" />
           </div>
 
-          <h3 className="font-semibold">Instructions</h3>
-          <Instructions
-            recipeId={recipeId}
-            instructions={instructions}
-          />
+          <button onClick={handleSummaryDetailClose} className="close-btn self-end fixed top-4 right-4 w-4 h-4 bg-gray-700 rounded-full mr-4 p-4 text-white inline-flex items-center justify-center z-10" type="button">
+            <AiOutlineClose style={closeBtnStyles} />
+          </button>
 
-          {videoUrl
-            && (
-            <a href={videoUrl} target="_blank" className="flex items-center gap-3 pt-10 text-xs" rel="noreferrer">
-              <FiVideo />
-              {' '}
-              HOW TO VIDEO
-            </a>
-            )}
+          <div className="w-11/12 bg-pink">
 
-          <Categories
-            tags={tags}
-          />
+            <h2 className="self-start py-10 border-b-2 border-grey-300 text-3xl font-semibold">{name}</h2>
+
+            <div className="flex gap-20 max-w-11/12 py-10">
+              <div>
+                <h3 className="font-semibold pb-5">Ingredients</h3>
+                <Ingredients
+                  recipeId={recipeId}
+                  sections={sections}
+                />
+              </div>
+              <div>
+                <div className="flex gap-4 items-center pb-5">
+                  <h3 className="font-semibold">Nutrition</h3>
+                  <button onClick={toggleNutrition} type="button">
+                    {isNutritionShown
+                      ? <FiChevronUp />
+                      : <FiChevronDown />}
+                  </button>
+                </div>
+                {isNutritionShown
+                    && (
+                      <Nutrition
+                        recipeId={recipeId}
+                        nutrition={nutrition}
+                      />
+                    )}
+
+              </div>
+            </div>
+
+            <h3 className="font-semibold">Instructions</h3>
+            <Instructions
+              recipeId={recipeId}
+              instructions={instructions}
+            />
+
+            {videoUrl
+                && (
+                  <a href={videoUrl} target="_blank" className="flex items-center gap-3 pt-10 text-xs" rel="noreferrer">
+                    <FiVideo />
+                    {' '}
+                    HOW TO VIDEO
+                  </a>
+                )}
+
+            <Categories
+              tags={tags}
+            />
+
+          </div>
 
         </div>
-
-      </div>
+      )}
     </>
+
   );
 }
