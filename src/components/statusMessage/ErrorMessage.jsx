@@ -8,7 +8,9 @@ function ErrorMessage() {
   return (
     <div className="error-container">
       <img src={imageurl} alt={imageurl} />
-      <h1 className="font-semibold" />
+      <p className="font-semibold">
+        Oops! There is a problem with the server ☹...
+      </p>
     </div>
   );
 }

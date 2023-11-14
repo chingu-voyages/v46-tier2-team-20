@@ -7,9 +7,9 @@ function StatusMessage() {
   return (
     <div className="error-container">
       <img src={imageurl} alt={imageurl} />
-      <h1 className="font-semibold">
+      <p className="font-semibold">
         No recipes found - try a different ingredient
-      </h1>
+      </p>
     </div>
   );
 }
