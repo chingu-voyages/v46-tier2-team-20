@@ -2,7 +2,7 @@ import { useState } from 'react';
 import './SearchBar.css';
 import { BiSearch, BiSolidErrorCircle } from 'react-icons/bi';
 
-export default function SearchBar({ fetchData }) {
+export default function SearchBar({ fetchData, isInstructionMenuOpen }) {
   const [ingredients, setIngredients] = useState('');
   const [validationError, setValidationError] = useState('');
 
@@ -35,7 +35,7 @@ export default function SearchBar({ fetchData }) {
   };
 
   return (
-    <div className="search-container mt-8 px-5">
+    <div className={isInstructionMenuOpen ? 'mt-48 px-5' : 'mt-8 px-5'}>
       <form
         role="search"
         className="search-bar relative mx-auto lg:mx-0"

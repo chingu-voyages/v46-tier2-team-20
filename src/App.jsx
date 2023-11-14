@@ -1,21 +1,25 @@
 import { useState } from 'react';
 import './App.css';
+import './index.css';
 
-import axios from 'axios';
+// import axios from 'axios';
 
 import Header from './components/header/Header';
 import SummaryDetail from './components/summaryDetail/SummaryDetail';
 import BackgroundBlur from './components/backgroundBlur/BackgroundBlur';
 import RecipeContainer from './components/recipeDisplay/RecipeContainer';
+import Instruction from './components/instruction/Instruction';
 import SearchBar from './components/searchBar/SearchBar';
 import Footer from './components/footer/Footer';
 
-import recipeData from './recipeData.js';
+import recipeData from './recipeData';
 
 function App() {
   const [recipes, setRecipes] = useState(null);
   const [recipeDetail, setRecipeDetail] = useState(null);
   const [isDetailShown, setIsDetailShown] = useState(false);
+  // Sharing state betweeen Instruction component and SearchBar component
+  const [isInstructionMenuOpen, setInstructionIsMenuOpen] = useState(false);
   //   const [isSearching, setIsSearching] = useState(false);
 
   function fetchData(ingredientString) {
@@ -43,10 +47,21 @@ function App() {
     setRecipeDetail(null);
   }
 
+  const toggleInstructionMenu = () => {
+    setInstructionIsMenuOpen(!isInstructionMenuOpen);
+  };
+
   return (
     <div className="relative">
       <Header />
-      <SearchBar fetchData={fetchData} />
+      <Instruction
+        toggleInstructionMenu={toggleInstructionMenu}
+        isInstructionMenuOpen={isInstructionMenuOpen}
+      />
+      <SearchBar
+        fetchData={fetchData}
+        isInstructionMenuOpen={isInstructionMenuOpen}
+      />
       <RecipeContainer recipes={recipes} handleRecipeBriefClick={handleRecipeBriefClick} />
 
       {isDetailShown
