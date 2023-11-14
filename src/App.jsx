@@ -68,7 +68,6 @@ function App() {
 
   function handleSummaryDetailClose() {
     setIsDetailShown(false);
-    setRecipeDetail(null);
   }
 
   return (
@@ -82,17 +81,15 @@ function App() {
 
       {isDetailShown
           && (
-            <>
-              <BackgroundBlur
-                handleSummaryDetailClose={handleSummaryDetailClose}
-              />
-              <SummaryDetail
-                recipeDetail={recipeDetail}
-                isDetailShown={isDetailShown}
-                handleSummaryDetailClose={handleSummaryDetailClose}
-              />
-            </>
+          <BackgroundBlur
+            handleSummaryDetailClose={handleSummaryDetailClose}
+          />
           )}
+      <SummaryDetail
+        recipeDetail={recipeDetail}
+        isDetailShown={isDetailShown}
+        handleSummaryDetailClose={handleSummaryDetailClose}
+      />
       <Footer />
     </div>
   );
