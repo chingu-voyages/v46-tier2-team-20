@@ -24,7 +24,7 @@ function Footer() {
 
           <div>
             <div>
-              <a href="https://github.com/AOA19" target="_blank">Alexandra</a>
+              <a href="https://github.com/AOA19" target="_blank">AOA19</a>
               {' '}
               <a href="https://github.com/allison-truhlar" target="_blank">Allison</a>
               {' '}
