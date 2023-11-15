@@ -23,7 +23,7 @@ function Footer() {
           </div>
 
           <div>
-            <div>
+            <div className="github-links">
               <a href="https://github.com/AOA19" target="_blank" rel="noreferrer">AOA19</a>
               {' '}
               <a href="https://github.com/allison-truhlar" target="_blank" rel="noreferrer">Allison</a>
@@ -33,7 +33,7 @@ function Footer() {
               <a href="https://github.com/komalgill0310" target="_blank" rel="noreferrer">Komal</a>
             </div>
 
-            <div className="flex">
+            <div className="github-links flex">
               <a href="https://github.com/nghia-nguyen-dev" target="_blank" rel="noreferrer">
                 Nghia
               </a>
