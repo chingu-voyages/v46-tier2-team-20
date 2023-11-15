@@ -4,7 +4,7 @@
     display: flex;
     justify-content: center;
     align-items: center;
-    max-height: 20vh;
+    width:100vw;
     font-size: 0.8rem;
     gap: 0.625rem; 
     background: #232323; 
@@ -13,19 +13,16 @@
 }
 
 .footer-container {
-    width: 100vh;
+    width: 100%;
+    max-width: 584px;
+    max-height: 20vh;
     display: flex;
     flex-direction: column;
     align-items: center;
-    /* text-align: center; */
     justify-content: center;
     gap: 0.5rem;
-    line-height: 1rem;
-    padding: 1rem;
-}
-
-.footer .git-logo {
-    padding: .5rem;
+    line-height: 1.5;
+    padding-block: 1rem;
 }
 
 .footer p {
@@ -37,27 +34,13 @@
     font-weight: bold;
 }
 
-@media screen and (min-width: 767px) {
-    .footer-container  {
-        flex-direction:row;
-        justify-content: space-evenly;
-        font-size: 1rem;
-    }
-}
-
 @media screen and (min-width: 992px) {
-    /* .dev-info {
-        text-align: left;
-    } */
 
     .footer-container {
         flex-direction:row;
         justify-content: space-evenly;
-        align-items: flex-start;
+        align-items: center;
     }
 
-    .footer .git-logo {
-        padding: 0px;
-    }
 }
 
