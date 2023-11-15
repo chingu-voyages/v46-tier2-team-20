@@ -30,7 +30,7 @@ export default function SummaryDetail({
 
   const containerStyle = {
     transform: isDetailShown ? 'translateX(0)' : 'translateX(100%)',
-    transition: 'transform 1s ease',
+    transition: 'transform 0.6s ease',
   };
 
   function toggleNutrition() {
