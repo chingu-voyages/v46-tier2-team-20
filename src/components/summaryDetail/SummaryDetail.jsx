@@ -47,23 +47,25 @@ export default function SummaryDetail({
             <img src={thumbnailUrl} className="w-full max-h-full object-cover object-center" />
           </div>
 
-          <button onClick={handleSummaryDetailClose} className="close-btn self-end fixed top-4 right-4 w-4 h-4 bg-gray-700 rounded-full mr-4 p-4 text-white inline-flex items-center justify-center z-10" type="button">
+          <button onClick={handleSummaryDetailClose} className="close-btn self-end fixed top-4 right-1 w-4 h-4 bg-gray-700 rounded-full mr-4 p-4 text-white inline-flex items-center justify-center z-10" type="button">
             <AiOutlineClose style={closeBtnStyles} />
           </button>
 
-          <div className="w-11/12 bg-pink">
+          <div className="w-11/12">
 
-            <h2 className="self-start py-10 border-b-2 border-grey-300 text-3xl font-semibold">{name}</h2>
+            <h2 className="self-start py-7 border-b-2 border-grey-300 text-3xl font-semibold">{name}</h2>
 
-            <div className="flex gap-20 max-w-11/12 py-10">
-              <div>
+            <div className="ingredients-and-nutrition-container flex max-w-11/12 py-7 ">
+
+              <div className="ingredient-container">
                 <h3 className="font-semibold pb-5">Ingredients</h3>
                 <Ingredients
                   recipeId={recipeId}
                   sections={sections}
                 />
               </div>
-              <div>
+
+              <div className="flex-grow">
                 <div className="flex gap-4 items-center pb-5">
                   <h3 className="font-semibold">Nutrition</h3>
                   <button onClick={toggleNutrition} type="button">
