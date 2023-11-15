@@ -27,6 +27,13 @@
   }
 }
 
+@media screen and (min-width: 768px) {
+  .summary-detail-container  {
+      border-radius: 24px 0 0 24px;
+  }
+
+}
+
 @media screen and (min-width: 1024px) {
   .summary-detail-container{
     width: 612px;
