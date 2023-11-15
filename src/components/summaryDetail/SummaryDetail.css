@@ -1,8 +1,33 @@
+@import url('https://fonts.googleapis.com/css2?family=Poppins&display=swap');
+
 .summary-detail-container{
+  font-family: Poppins, sans-serif;
+  line-height: 1.5;
+  letter-spacing: 0.4px;
   width: 100vw;
+  background-color: #F3FAFC;
 }
 
-@media (min-width: 1024px) {
+.ingredients-and-nutrition-container{
+  flex-direction: column;
+  gap: 1.75rem;
+}
+
+.nutrition-container .nutrition-row:first-child{
+  font-weight: bold;
+}
+
+@media screen and (min-width: 480px) {
+  .ingredients-and-nutrition-container  {
+      flex-direction: row;
+      gap: 5rem;
+  }
+  .ingredient-container{
+    max-width: 284px;
+  }
+}
+
+@media screen and (min-width: 1024px) {
   .summary-detail-container{
     width: 612px;
   }
