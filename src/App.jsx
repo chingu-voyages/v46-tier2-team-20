@@ -31,16 +31,15 @@ function App() {
 
   function handleRecipeCardClick(recipe) {
     setRecipeDetail(recipe);
-    toggleIsDetailShown();
+    setIsDetailShown(true);
   }
 
-  function toggleIsDetailShown() {
-    setIsDetailShown((prevIsDetailShown) => !prevIsDetailShown);
-  }
+  // function toggleIsDetailShown() {
+  //   setIsDetailShown((prevIsDetailShown) => !prevIsDetailShown);
+  // }
 
   function handleSummaryDetailClose() {
-    toggleIsDetailShown();
-    setRecipeDetail(null);
+    setIsDetailShown(false);
   }
 
   return (
@@ -52,7 +51,7 @@ function App() {
           recipes={recipes}
           handleRecipeCardClick={handleRecipeCardClick}
         />
-
+            
         {isDetailShown
             && (
               <>

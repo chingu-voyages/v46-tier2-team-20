@@ -1,3 +1,5 @@
+import './SummaryDetail.css';
+
 export default function Nutrition({ recipeId, nutrition }) {
   let nutritionEls = null;
 
@@ -12,16 +14,20 @@ export default function Nutrition({ recipeId, nutrition }) {
     .filter(([key, value]) => key !== 'updated_at')
     .sort(([keyA], [keyB]) => keyA.localeCompare(keyB))
     .map(([key, value]) => (
-      <p key={recipeId + capitalize(key)} className="border-t text-xs">
-        {capitalize(key)}
-        {': '}
-        {value}
-      </p>
+      <div className="nutrition-row border-t flex justify-between">
+        <p key={recipeId + capitalize(key)} className="text-xs">
+          {capitalize(key)}
+        </p>
+        <p className="text-xs">
+          {value}
+        </p>
+      </div>
+
     ));
 
   return (
-    <>
+    <div className="nutrition-container">
       {nutritionEls}
-    </>
+    </div>
   );
 }
