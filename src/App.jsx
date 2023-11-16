@@ -43,25 +43,29 @@ function App() {
   }
 
   return (
-    <div className="relative">
-      <Header />
-      <SearchBar fetchData={fetchData} />
-      <RecipeContainer
-        recipes={recipes}
-        handleRecipeCardClick={handleRecipeCardClick}
-      />
-
-      {isDetailShown
-          && (
-          <BackgroundBlur
-            handleSummaryDetailClose={handleSummaryDetailClose}
-          />
-          )}
-      <SummaryDetail
-        recipeDetail={recipeDetail}
-        isDetailShown={isDetailShown}
-        handleSummaryDetailClose={handleSummaryDetailClose}
-      />
+    <div className="relative flex flex-col min-h-screen">
+      <div className="flex-grow">
+        <Header />
+        <SearchBar fetchData={fetchData} />
+        <RecipeContainer
+          recipes={recipes}
+          handleRecipeCardClick={handleRecipeCardClick}
+        />
+            
+        {isDetailShown
+            && (
+              <>
+                <BackgroundBlur
+                  handleSummaryDetailClose={handleSummaryDetailClose}
+                />
+                <SummaryDetail
+                  recipeDetail={recipeDetail}
+                  isDetailShown={isDetailShown}
+                  handleSummaryDetailClose={handleSummaryDetailClose}
+                />
+              </>
+            )}
+      </div>
       <Footer />
     </div>
   );
