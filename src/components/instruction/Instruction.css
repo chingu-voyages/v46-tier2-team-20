@@ -1,6 +1,6 @@
 .instruction-menu {
     display: none;
-    transition: 0.3s ease-in-out;
+    transition: 0.3s ease;
 }
 
 .instruction-menu.show {
@@ -9,4 +9,34 @@
 
 .instruction-step {
     @apply text-slate-50 flex items-center justify-start py-1;
+}
+
+
+@media (min-height: 568px) {
+    .instruction-container {
+        top: 260px;
+    }
+}
+
+@media (min-height: 639px) {
+    .instruction-container {
+        top: 300px;
+    }
+}
+
+@media (min-height: 815px) and (max-height: 999px) {
+    .instruction-container {
+        top: 380px;
+    }
+}
+
+@media (min-height: 1000px) {
+    .instruction-container {
+        top: 400px;
+    }
+}
+@media (min-height: 1150px) {
+    .instruction-container {
+        top: 460px;
+    }
 }

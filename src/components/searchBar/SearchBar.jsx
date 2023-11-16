@@ -35,7 +35,7 @@ export default function SearchBar({ fetchData, isInstructionMenuOpen }) {
   };
 
   return (
-    <div className={isInstructionMenuOpen ? 'mt-48 px-5' : 'mt-8 px-5'}>
+    <div className={`px-5 lg:ps-16 min-[1440px]:ps-32 2xl:ps-48 ${isInstructionMenuOpen ? 'mt-40 lg:mt-28 ' : 'mt-8'}`}>
       <form
         role="search"
         className="search-bar relative mx-auto lg:mx-0"
