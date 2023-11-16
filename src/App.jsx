@@ -11,6 +11,7 @@ import RecipeContainer from './components/recipeDisplay/RecipeContainer';
 import Instruction from './components/instruction/Instruction';
 import SearchBar from './components/searchBar/SearchBar';
 import Footer from './components/footer/Footer';
+import InstructionMenuHook from './hooks/InstructionMenuHook';
 
 import recipeData from './recipeData';
 
@@ -18,8 +19,7 @@ function App() {
   const [recipes, setRecipes] = useState(null);
   const [recipeDetail, setRecipeDetail] = useState(null);
   const [isDetailShown, setIsDetailShown] = useState(false);
-  // Sharing state betweeen Instruction component and SearchBar component
-  const [isInstructionMenuOpen, setInstructionIsMenuOpen] = useState(false);
+  const { isInstructionMenuOpen, toggleInstructionMenu } = InstructionMenuHook();
   //   const [isSearching, setIsSearching] = useState(false);
 
   function fetchData(ingredientString) {
@@ -46,10 +46,6 @@ function App() {
     toggleIsDetailShown();
     setRecipeDetail(null);
   }
-
-  const toggleInstructionMenu = () => {
-    setInstructionIsMenuOpen(!isInstructionMenuOpen);
-  };
 
   return (
     <div className="relative">
