@@ -3,7 +3,6 @@ import './App.css';
 
 import axios from 'axios';
 
-import { isEmpty } from 'lodash';
 import PulseLoader from 'react-spinners/PulseLoader';
 import Header from './components/header/Header';
 import SummaryDetail from './components/summaryDetail/SummaryDetail';
@@ -68,13 +67,17 @@ function App() {
     <div className="relative">
       <Header />
       <SearchBar fetchData={fetchData} />
-      <PulseLoader
-        color="#E93F0C"
-        loading={isSearching}
-        size={50}
-        aria-label="Loading Spinner"
-        data-testid="loader"
-      />
+      {isSearching && (
+        <div className="flex items-center justify-center p-10">
+          <PulseLoader
+            color="#E93F0C"
+            loading={isSearching}
+            size={20}
+            aria-label="Loading Spinner"
+            data-testid="loader"
+          />
+        </div>
+      )}
       {recipes.length === 0 && <StatusMessage /> }
       { hasError && <ErrorMessage /> }
       {isSearched && (
