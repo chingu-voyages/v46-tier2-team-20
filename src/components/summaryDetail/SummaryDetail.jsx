@@ -39,7 +39,7 @@ export default function SummaryDetail({
 
   return (
 
-    <>
+    <div>
       {recipeDetail && (
         <div style={containerStyle} className="summary-detail-container fixed top-0 right-0 h-full bg-white max-h-screen overflow-y-scroll inline-flex flex-col items-center pb-4">
 
@@ -108,7 +108,7 @@ export default function SummaryDetail({
 
         </div>
       )}
-    </>
+    </div>
 
   );
 }

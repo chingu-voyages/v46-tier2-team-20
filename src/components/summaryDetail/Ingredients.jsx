@@ -7,6 +7,7 @@ export default function Ingredients({ recipeId, sections }) {
     </li>
   )));
 
+
   return (
     <div className="rounded-2xl py-5 px-4 bg-gray-100">
       <ul>

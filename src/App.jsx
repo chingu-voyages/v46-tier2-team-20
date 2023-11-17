@@ -12,7 +12,6 @@ import InstructionMenu from './components/instructionMenu/InstructionMenu';
 import SearchBar from './components/searchBar/SearchBar';
 import Footer from './components/footer/Footer';
 import InstructionMenuHook from './hooks/InstructionMenuHook';
-
 import recipeData from './recipeData';
 
 function App() {
@@ -47,6 +46,7 @@ function App() {
   }
 
   return (
+
     <div className="relative flex flex-col min-h-screen">
       <div className="flex-grow">
         <Header />
