@@ -55,18 +55,13 @@ function App() {
     setIsSearching(false);
   }
 
-  function handleRecipeBriefClick(recipe) {
+  function handleRecipeCardClick(recipe) {
     setRecipeDetail(recipe);
-    toggleIsDetailShown();
-  }
-
-  function toggleIsDetailShown() {
-    setIsDetailShown((prevIsDetailShown) => !prevIsDetailShown);
+    setIsDetailShown(true);
   }
 
   function handleSummaryDetailClose() {
-    toggleIsDetailShown();
-    setRecipeDetail(null);
+    setIsDetailShown(false);
   }
 
   return (
@@ -82,20 +77,22 @@ function App() {
       />
       {recipes.length === 0 && <StatusMessage /> }
       { hasError && <ErrorMessage /> }
-      {isSearched && <RecipeContainer recipes={recipes} handleRecipeBriefClick={handleRecipeBriefClick} />}
-      { isDetailShown
-          && (
-            <>
-              <BackgroundBlur
-                handleSummaryDetailClose={handleSummaryDetailClose}
-              />
-              <SummaryDetail
-                recipeDetail={recipeDetail}
-                isDetailShown={isDetailShown}
-                handleSummaryDetailClose={handleSummaryDetailClose}
-              />
-            </>
-          )}
+      {isSearched && (
+        <RecipeContainer
+          recipes={recipes}
+          handleRecipeCardClick={handleRecipeCardClick}
+        />
+      )}
+      {isDetailShown && (
+        <BackgroundBlur
+          handleSummaryDetailClose={handleSummaryDetailClose}
+        />
+      )}
+      <SummaryDetail
+        recipeDetail={recipeDetail}
+        isDetailShown={isDetailShown}
+        handleSummaryDetailClose={handleSummaryDetailClose}
+      />
       <Footer />
     </div>
   );
