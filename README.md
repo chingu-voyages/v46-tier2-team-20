@@ -105,8 +105,8 @@ Feel free to explore each of these technologies to gain a deeper understanding o
 
 **Developers:**
 
-1. Allison | GitHub | LinkedIn
-2. Alexandra | GitHub | LinkedIn
+1. Allison | [GitHub](https://github.com/allison-truhlar) | [LinkedIn](https://www.linkedin.com/in/allison-truhlar/)
+2. Alexandra | [GitHub](https://github.com/AOA19) | [LinkedIn](https://www.linkedin.com/in/alexandraak/)
 3. Eminint | [GitHub](https://github.com/Emimint) | [LinkedIn](https://www.linkedin.com/in/emilie-echevin/)
 4. Komal | [GitHub](https://github.com/komalgill0310) | [LinkedIn](https://www.linkedin.com/in/hssa03/)
 
