@@ -24,11 +24,11 @@ export default function SummaryDetail({
     } = recipeDetail);
   }
 
-  const closeBtnStyles = {
+  const closeIconCustomStyles = {
     color: 'white', zIndex: 11, position: 'fixed', top: '1 rem', right: '1 rem',
   };
 
-  const containerStyle = {
+  const containerConditionalStyles = {
     transform: isDetailShown ? 'translateX(0)' : 'translateX(100%)',
     transition: 'transform 0.6s ease',
   };
@@ -43,10 +43,10 @@ export default function SummaryDetail({
       {recipeDetail && (
         <>
           <button onClick={handleSummaryDetailClose} className="close-btn self-end fixed top-4 right-1 w-4 h-4 bg-gray-700 rounded-full mr-4 p-4 text-white inline-flex items-center justify-center z-10" type="button">
-            <AiOutlineClose style={closeBtnStyles} />
+            <AiOutlineClose style={closeIconCustomStyles} />
           </button>
 
-          <div style={containerStyle} className="summary-detail-container fixed top-0 right-0 h-full bg-white max-h-screen overflow-y-scroll inline-flex flex-col items-center pb-4">
+          <div style={containerConditionalStyles} className="summary-detail-container fixed top-0 right-0 h-full bg-white max-h-screen overflow-y-scroll inline-flex flex-col items-center pb-4">
 
             <div className="recipe-detail-img h-1/3 w-full">
               <img src={thumbnailUrl} className="w-full max-h-full object-cover object-center" />
