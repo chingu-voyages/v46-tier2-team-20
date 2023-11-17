@@ -65,17 +65,15 @@ function App() {
 
         {isDetailShown
             && (
-              <>
-                <BackgroundBlur
-                  handleSummaryDetailClose={handleSummaryDetailClose}
-                />
-                <SummaryDetail
-                  recipeDetail={recipeDetail}
-                  isDetailShown={isDetailShown}
-                  handleSummaryDetailClose={handleSummaryDetailClose}
-                />
-              </>
+            <BackgroundBlur
+              handleSummaryDetailClose={handleSummaryDetailClose}
+            />
             )}
+        <SummaryDetail
+          recipeDetail={recipeDetail}
+          isDetailShown={isDetailShown}
+          handleSummaryDetailClose={handleSummaryDetailClose}
+        />
       </div>
       <Footer />
     </div>
