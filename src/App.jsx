@@ -64,38 +64,40 @@ function App() {
   }
 
   return (
-    <div className="relative">
-      <Header />
-      <SearchBar fetchData={fetchData} />
-      {isSearching && (
-        <div className="flex items-center justify-center p-10">
-          <PulseLoader
-            color="#E93F0C"
-            loading={isSearching}
-            size={20}
-            aria-label="Loading Spinner"
-            data-testid="loader"
+    <div className="relative flex flex-col min-h-screen">
+      <div className="flex-grow">
+        <Header />
+        <SearchBar fetchData={fetchData} />
+        {isSearching && (
+          <div className="flex items-center justify-center p-10">
+            <PulseLoader
+              color="#E93F0C"
+              loading={isSearching}
+              size={20}
+              aria-label="Loading Spinner"
+              data-testid="loader"
+            />
+          </div>
+        )}
+        {recipes.length === 0 && <StatusMessage /> }
+        { hasError && <ErrorMessage /> }
+        {isSearched && (
+          <RecipeContainer
+            recipes={recipes}
+            handleRecipeCardClick={handleRecipeCardClick}
           />
-        </div>
-      )}
-      {recipes.length === 0 && <StatusMessage /> }
-      { hasError && <ErrorMessage /> }
-      {isSearched && (
-        <RecipeContainer
-          recipes={recipes}
-          handleRecipeCardClick={handleRecipeCardClick}
-        />
-      )}
-      {isDetailShown && (
-        <BackgroundBlur
+        )}
+        {isDetailShown && (
+          <BackgroundBlur
+            handleSummaryDetailClose={handleSummaryDetailClose}
+          />
+        )}
+        <SummaryDetail
+          recipeDetail={recipeDetail}
+          isDetailShown={isDetailShown}
           handleSummaryDetailClose={handleSummaryDetailClose}
         />
-      )}
-      <SummaryDetail
-        recipeDetail={recipeDetail}
-        isDetailShown={isDetailShown}
-        handleSummaryDetailClose={handleSummaryDetailClose}
-      />
+      </div>
       <Footer />
     </div>
   );
