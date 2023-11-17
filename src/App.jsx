@@ -4,6 +4,7 @@ import './App.css';
 import axios from 'axios';
 
 import PulseLoader from 'react-spinners/PulseLoader';
+import { isEmpty } from 'lodash';
 import Header from './components/header/Header';
 import SummaryDetail from './components/summaryDetail/SummaryDetail';
 import BackgroundBlur from './components/backgroundBlur/BackgroundBlur';
@@ -12,6 +13,7 @@ import SearchBar from './components/searchBar/SearchBar';
 import Footer from './components/footer/Footer';
 import StatusMessage from './components/statusMessage/StatusMessage';
 import ErrorMessage from './components/statusMessage/ErrorMessage';
+import Pagination from './components/pagination/Pagination';
 
 function App() {
   const [recipes, setRecipes] = useState({});
@@ -20,6 +22,8 @@ function App() {
   const [isSearched, setIsSearched] = useState(false);
   const [isSearching, setIsSearching] = useState(false);
   const [hasError, setHasError] = useState(false);
+  const [currentPage, setCurrentPage] = useState(1);
+  const [recordsPerPage] = useState(10);
 
   // This function could potentially be moved out to a "utils" folder?
   // In that case, I think the response or error could be returned,
@@ -35,7 +39,7 @@ function App() {
       url: 'https://tasty.p.rapidapi.com/recipes/list',
       params: {
         from: '0',
-        size: '20',
+        size: '50',
         q: ingredientString,
       },
       headers: {
@@ -68,6 +72,11 @@ function App() {
     setRecipeDetail(null);
   }
 
+  const indexOfLastRecord = currentPage * recordsPerPage;
+  const indexOfFirstRecord = indexOfLastRecord - recordsPerPage;
+  const currentRecords = Object.values(recipes).slice(indexOfFirstRecord, indexOfLastRecord);
+  const nPages = Math.ceil(recipes.length / recordsPerPage);
+
   return (
     <div className="relative">
       <Header />
@@ -85,7 +94,15 @@ function App() {
       )}
       {recipes.length === 0 && <StatusMessage /> }
       { hasError && <ErrorMessage /> }
-      {isSearched && <RecipeContainer recipes={recipes} handleRecipeBriefClick={handleRecipeBriefClick} />}
+      {isSearched && <RecipeContainer recipes={currentRecords} handleRecipeBriefClick={handleRecipeBriefClick} />}
+      { !isEmpty(recipes)
+        && (
+          <Pagination
+            nPages={nPages}
+            currentPage={currentPage}
+            setCurrentPage={setCurrentPage}
+          />
+        )}
       { isDetailShown
           && (
             <>
