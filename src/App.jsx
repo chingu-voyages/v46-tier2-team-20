@@ -1,29 +1,30 @@
 import { useState } from 'react';
 import './App.css';
-import './index.css';
 
 import axios from 'axios';
+
+import { isEmpty } from 'lodash';
 import PulseLoader from 'react-spinners/PulseLoader';
 import Header from './components/header/Header';
 import SummaryDetail from './components/summaryDetail/SummaryDetail';
 import BackgroundBlur from './components/backgroundBlur/BackgroundBlur';
 import RecipeContainer from './components/recipeDisplay/RecipeContainer';
-import InstructionMenu from './components/instructionMenu/InstructionMenu';
 import SearchBar from './components/searchBar/SearchBar';
 import Footer from './components/footer/Footer';
 import StatusMessage from './components/statusMessage/StatusMessage';
 import ErrorMessage from './components/statusMessage/ErrorMessage';
-import InstructionMenuHook from './hooks/InstructionMenuHook';
 
 function App() {
   const [recipes, setRecipes] = useState({});
   const [recipeDetail, setRecipeDetail] = useState(null);
   const [isDetailShown, setIsDetailShown] = useState(false);
-  const { isInstructionMenuOpen, toggleInstructionMenu } = InstructionMenuHook();
   const [isSearched, setIsSearched] = useState(false);
   const [isSearching, setIsSearching] = useState(false);
   const [hasError, setHasError] = useState(false);
 
+  // This function could potentially be moved out to a "utils" folder?
+  // In that case, I think the response or error could be returned,
+  // and then used with setRecipes or setError here
   async function fetchData(ingredientString) {
     setIsSearched(true);
     setIsSearching(true);
@@ -54,56 +55,47 @@ function App() {
     setIsSearching(false);
   }
 
-  function handleRecipeCardClick(recipe) {
+  function handleRecipeBriefClick(recipe) {
     setRecipeDetail(recipe);
-    setIsDetailShown(true);
+    toggleIsDetailShown();
+  }
+
+  function toggleIsDetailShown() {
+    setIsDetailShown((prevIsDetailShown) => !prevIsDetailShown);
   }
 
   function handleSummaryDetailClose() {
-    setIsDetailShown(false);
+    toggleIsDetailShown();
+    setRecipeDetail(null);
   }
 
   return (
-    <div className="relative flex flex-col min-h-screen">
-      <div className="flex-grow">
-        <Header />
-        <InstructionMenu
-          toggleInstructionMenu={toggleInstructionMenu}
-          isInstructionMenuOpen={isInstructionMenuOpen}
-        />
-        <SearchBar
-          fetchData={fetchData}
-          isInstructionMenuOpen={isInstructionMenuOpen}
-        />
-        <PulseLoader
-          color="#E93F0C"
-          loading={isSearching}
-          size={50}
-          aria-label="Loading Spinner"
-          data-testid="loader"
-        />
-        {recipes.length === 0 && <StatusMessage /> }
-        { hasError && <ErrorMessage /> }
-        { isSearched
+    <div className="relative">
+      <Header />
+      <SearchBar fetchData={fetchData} />
+      <PulseLoader
+        color="#E93F0C"
+        loading={isSearching}
+        size={50}
+        aria-label="Loading Spinner"
+        data-testid="loader"
+      />
+      {recipes.length === 0 && <StatusMessage /> }
+      { hasError && <ErrorMessage /> }
+      {isSearched && <RecipeContainer recipes={recipes} handleRecipeBriefClick={handleRecipeBriefClick} />}
+      { isDetailShown
           && (
-            <RecipeContainer
-              recipes={recipes}
-              handleRecipeBriefClick={handleRecipeCardClick}
-            />
+            <>
+              <BackgroundBlur
+                handleSummaryDetailClose={handleSummaryDetailClose}
+              />
+              <SummaryDetail
+                recipeDetail={recipeDetail}
+                isDetailShown={isDetailShown}
+                handleSummaryDetailClose={handleSummaryDetailClose}
+              />
+            </>
           )}
-
-        {isDetailShown
-            && (
-            <BackgroundBlur
-              handleSummaryDetailClose={handleSummaryDetailClose}
-            />
-            )}
-        <SummaryDetail
-          recipeDetail={recipeDetail}
-          isDetailShown={isDetailShown}
-          handleSummaryDetailClose={handleSummaryDetailClose}
-        />
-      </div>
       <Footer />
     </div>
   );
