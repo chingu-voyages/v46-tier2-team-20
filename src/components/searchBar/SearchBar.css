@@ -1,4 +1,25 @@
+/* Adjust when instruction menu is open */
+.search-menuOpen {
+    margin-top: 260px;
+}
+
+/* Adjust when instruction menu is closed  */
+.search-menuClosed {
+    margin-top: 90px;
+}
 
 .search-bar {
     max-width: 500px;
+}
+
+@media (min-height: 830px) {
+    .search-menuOpen {
+        margin-top: 180px;
+    }
+}
+
+@media (min-height: 1280px) {
+    .search-menuOpen {
+        margin-top: 130px;
+    }
 }
