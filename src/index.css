@@ -1,10 +1,10 @@
 /* For global styling only */
+@import url('https://fonts.googleapis.com/css2?family=Poppins&display=swap');
 
 @tailwind base;
 @tailwind components;
 @tailwind utilities;
 
-@import url('https://fonts.googleapis.com/css2?family=Poppins&display=swap');
 
 :root {
     --font-family: 'Poppins', sans-serif;
