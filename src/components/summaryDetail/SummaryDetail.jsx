@@ -41,19 +41,19 @@ export default function SummaryDetail({
 
     <>
       {recipeDetail && (
-        <div style={animationStyles} className="summary-detail-container fixed top-0 right-0 h-full bg-white max-h-screen overflow-y-scroll inline-flex flex-col items-center pb-4">
+        <div style={animationStyles} className="summary-detail-container fixed top-0 right-0 h-full bg-[#FBFAF9] max-h-screen overflow-y-scroll inline-flex flex-col items-center pb-4">
 
           <div className="recipe-detail-img h-1/3 w-full">
             <img src={thumbnailUrl} className="w-full max-h-full object-cover object-center" />
           </div>
 
-          <button onClick={handleSummaryDetailClose} className="close-btn self-end fixed top-4 right-1 w-4 h-4 bg-gray-700 rounded-full mr-4 p-4 text-white inline-flex items-center justify-center z-10" type="button">
+          <button onClick={handleSummaryDetailClose} className="close-btn self-end fixed top-4 right-1 w-4 h-4 rounded-full mr-4 p-4 bg-[#F56135] text-white inline-flex items-center justify-center z-10" type="button">
             <AiOutlineClose style={closeIconCustomStyles} />
           </button>
 
           <div className="w-11/12">
 
-            <h2 className="self-start py-7 border-b-2 border-grey-300 text-3xl font-semibold">{name}</h2>
+            <h2 className="self-start py-7 border-b-2 border-[#D7C7C1] text-3xl font-semibold">{name}</h2>
 
             <div className="ingredients-and-nutrition-container flex max-w-11/12 py-7 ">
 
@@ -93,7 +93,7 @@ export default function SummaryDetail({
 
             {videoUrl
                 && (
-                  <a href={videoUrl} target="_blank" className="flex items-center gap-3 pt-10 text-xs" rel="noreferrer">
+                  <a href={videoUrl} target="_blank" className="flex items-center gap-3 pt-6 text-xs" rel="noreferrer">
                     <FiVideo />
                     {' '}
                     HOW TO VIDEO

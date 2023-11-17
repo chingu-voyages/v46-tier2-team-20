@@ -5,7 +5,7 @@ export default function Categories({ tags }) {
     .join(', ');
 
   return (
-    <div className="border-t-2 border-grey-300 pt-1">
+    <div className="border-t-2 border-[#D7C7C1] pt-1">
       <p className="text-xs">{categoryList}</p>
     </div>
   );
