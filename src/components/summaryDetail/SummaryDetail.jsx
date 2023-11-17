@@ -93,7 +93,7 @@ export default function SummaryDetail({
 
             {videoUrl
                 && (
-                  <a href={videoUrl} target="_blank" className="flex items-center gap-3 pt-6 text-xs" rel="noreferrer">
+                  <a href={videoUrl} target="_blank" className="flex items-center gap-3 pt-6 pb-10 text-xs" rel="noreferrer">
                     <FiVideo />
                     {' '}
                     HOW TO VIDEO
