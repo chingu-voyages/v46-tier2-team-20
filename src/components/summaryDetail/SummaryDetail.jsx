@@ -28,7 +28,7 @@ export default function SummaryDetail({
     color: 'white', zIndex: 11, position: 'fixed', top: '1 rem', right: '1 rem',
   };
 
-  const containerConditionalStyles = {
+  const animationStyles = {
     transform: isDetailShown ? 'translateX(0)' : 'translateX(100%)',
     transition: 'transform 0.6s ease',
   };
@@ -41,41 +41,40 @@ export default function SummaryDetail({
 
     <>
       {recipeDetail && (
-        <>
+        <div style={animationStyles} className="summary-detail-container fixed top-0 right-0 h-full bg-white max-h-screen overflow-y-scroll inline-flex flex-col items-center pb-4">
+
+          <div className="recipe-detail-img h-1/3 w-full">
+            <img src={thumbnailUrl} className="w-full max-h-full object-cover object-center" />
+          </div>
+
           <button onClick={handleSummaryDetailClose} className="close-btn self-end fixed top-4 right-1 w-4 h-4 bg-gray-700 rounded-full mr-4 p-4 text-white inline-flex items-center justify-center z-10" type="button">
             <AiOutlineClose style={closeIconCustomStyles} />
           </button>
 
-          <div style={containerConditionalStyles} className="summary-detail-container fixed top-0 right-0 h-full bg-white max-h-screen overflow-y-scroll inline-flex flex-col items-center pb-4">
+          <div className="w-11/12">
 
-            <div className="recipe-detail-img h-1/3 w-full">
-              <img src={thumbnailUrl} className="w-full max-h-full object-cover object-center" />
-            </div>
+            <h2 className="self-start py-7 border-b-2 border-grey-300 text-3xl font-semibold">{name}</h2>
 
-            <div className="w-11/12">
+            <div className="ingredients-and-nutrition-container flex max-w-11/12 py-7 ">
 
-              <h2 className="self-start py-7 border-b-2 border-grey-300 text-3xl font-semibold">{name}</h2>
+              <div className="ingredient-container">
+                <h3 className="font-semibold pb-5">Ingredients</h3>
+                <Ingredients
+                  recipeId={recipeId}
+                  sections={sections}
+                />
+              </div>
 
-              <div className="ingredients-and-nutrition-container flex max-w-11/12 py-7 ">
-
-                <div className="ingredient-container">
-                  <h3 className="font-semibold pb-5">Ingredients</h3>
-                  <Ingredients
-                    recipeId={recipeId}
-                    sections={sections}
-                  />
+              <div className="flex-grow">
+                <div className="flex gap-4 items-center pb-5">
+                  <h3 className="font-semibold">Nutrition</h3>
+                  <button onClick={toggleNutrition} type="button">
+                    {isNutritionShown
+                      ? <FiChevronUp />
+                      : <FiChevronDown />}
+                  </button>
                 </div>
-
-                <div className="flex-grow">
-                  <div className="flex gap-4 items-center pb-5">
-                    <h3 className="font-semibold">Nutrition</h3>
-                    <button onClick={toggleNutrition} type="button">
-                      {isNutritionShown
-                        ? <FiChevronUp />
-                        : <FiChevronDown />}
-                    </button>
-                  </div>
-                  {isNutritionShown
+                {isNutritionShown
                     && (
                       <Nutrition
                         recipeId={recipeId}
@@ -83,16 +82,16 @@ export default function SummaryDetail({
                       />
                     )}
 
-                </div>
               </div>
+            </div>
 
-              <h3 className="font-semibold">Instructions</h3>
-              <Instructions
-                recipeId={recipeId}
-                instructions={instructions}
-              />
+            <h3 className="font-semibold">Instructions</h3>
+            <Instructions
+              recipeId={recipeId}
+              instructions={instructions}
+            />
 
-              {videoUrl
+            {videoUrl
                 && (
                   <a href={videoUrl} target="_blank" className="flex items-center gap-3 pt-10 text-xs" rel="noreferrer">
                     <FiVideo />
@@ -101,14 +100,13 @@ export default function SummaryDetail({
                   </a>
                 )}
 
-              <Categories
-                tags={tags}
-              />
-
-            </div>
+            <Categories
+              tags={tags}
+            />
 
           </div>
-        </>
+
+        </div>
       )}
     </>
 
