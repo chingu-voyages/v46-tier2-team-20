@@ -105,10 +105,10 @@ Feel free to explore each of these technologies to gain a deeper understanding o
 
 **Developers:**
 
-1. Komal | [GitHub](https://github.com/komalgill0310) | [LinkedIn](https://www.linkedin.com/in/hssa03/)
-2. Allison | GitHub | LinkedIn
-3. Eminint | GitHub | LinkedIn
-4. Alexandra | GitHub | LinkedIn
+1. Allison | GitHub | LinkedIn
+2. Alexandra | GitHub | LinkedIn
+3. Eminint | [GitHub](https://github.com/Emimint) | [LinkedIn](https://www.linkedin.com/in/emilie-echevin/)
+4. Komal | [GitHub](https://github.com/komalgill0310) | [LinkedIn](https://www.linkedin.com/in/hssa03/)
 
 **Designer:**
-Nghia | GitHub |LinkedIn
+Nghia | [GitHub](https://github.com/nghia-nguyen-dev) |[LinkedIn](https://www.linkedin.com/in/nghia-nguyen-100/)
