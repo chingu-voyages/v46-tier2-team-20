@@ -72,15 +72,17 @@ function App() {
     <div className="relative">
       <Header />
       <SearchBar fetchData={fetchData} />
-      <div className="flex items-center justify-center p-10">
-        <PulseLoader
-          color="#E93F0C"
-          loading={isSearching}
-          size={20}
-          aria-label="Loading Spinner"
-          data-testid="loader"
-        />
-      </div>
+      {isSearching && (
+        <div className="flex items-center justify-center p-10">
+          <PulseLoader
+            color="#E93F0C"
+            loading={isSearching}
+            size={20}
+            aria-label="Loading Spinner"
+            data-testid="loader"
+          />
+        </div>
+      )}
       {recipes.length === 0 && <StatusMessage /> }
       { hasError && <ErrorMessage /> }
       {isSearched && <RecipeContainer recipes={recipes} handleRecipeBriefClick={handleRecipeBriefClick} />}
