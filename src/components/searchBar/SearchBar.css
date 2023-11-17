@@ -1,11 +1,11 @@
 /* Adjust when instruction menu is open */
 .search-menuOpen {
-    margin-top: 230px;
+    margin-top: 260px;
 }
 
 /* Adjust when instruction menu is closed  */
 .search-menuClosed {
-    margin-top: 80px;
+    margin-top: 90px;
 }
 
 .search-bar {

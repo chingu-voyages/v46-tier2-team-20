@@ -1,5 +1,5 @@
 .instruction-container {
-    top: 140px;
+    top: 160px;
 }
 
 .instruction-menu {
@@ -17,7 +17,7 @@
 
 @media (min-height: 400px) {
     .instruction-container {
-        top: 180px;
+        top: 190px;
     }
 }
 
@@ -27,7 +27,7 @@
     }
 }
 
-@media (min-height: 830px) {
+@media (min-height: 800px) {
     .instruction-container {
         top: 290px;
     }
