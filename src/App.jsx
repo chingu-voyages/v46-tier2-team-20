@@ -4,6 +4,7 @@ import './App.css';
 import axios from 'axios';
 
 import { isEmpty } from 'lodash';
+import PulseLoader from 'react-spinners/PulseLoader';
 import Header from './components/header/Header';
 import SummaryDetail from './components/summaryDetail/SummaryDetail';
 import BackgroundBlur from './components/backgroundBlur/BackgroundBlur';
@@ -14,7 +15,7 @@ import StatusMessage from './components/statusMessage/StatusMessage';
 import ErrorMessage from './components/statusMessage/ErrorMessage';
 
 function App() {
-  const [recipes, setRecipes] = useState(null);
+  const [recipes, setRecipes] = useState({});
   const [recipeDetail, setRecipeDetail] = useState(null);
   const [isDetailShown, setIsDetailShown] = useState(false);
   const [isSearched, setIsSearched] = useState(false);
@@ -26,6 +27,7 @@ function App() {
   // and then used with setRecipes or setError here
   async function fetchData(ingredientString) {
     setIsSearched(true);
+    setIsSearching(true);
     setRecipes({});
     setHasError(false);
 
@@ -71,7 +73,14 @@ function App() {
     <div className="relative">
       <Header />
       <SearchBar fetchData={fetchData} />
-      { isSearched && isEmpty(recipes) && !hasError && <StatusMessage /> }
+      <PulseLoader
+        color="#E93F0C"
+        loading={isSearching}
+        size={50}
+        aria-label="Loading Spinner"
+        data-testid="loader"
+      />
+      {recipes.length === 0 && <StatusMessage /> }
       { hasError && <ErrorMessage /> }
       {isSearched && <RecipeContainer recipes={recipes} handleRecipeBriefClick={handleRecipeBriefClick} />}
       { isDetailShown
