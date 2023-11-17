@@ -33,24 +33,24 @@ function App() {
     setRecipes(data);
   }
 
-  function handleRecipeBriefClick(recipe) {
+  function handleRecipeCardClick(recipe) {
     setRecipeDetail(recipe);
-    toggleIsDetailShown();
+    setIsDetailShown(true);
   }
 
-  function toggleIsDetailShown() {
-    setIsDetailShown((prevIsDetailShown) => !prevIsDetailShown);
-  }
+  // function toggleIsDetailShown() {
+  //   setIsDetailShown((prevIsDetailShown) => !prevIsDetailShown);
+  // }
 
   function handleSummaryDetailClose() {
-    toggleIsDetailShown();
-    setRecipeDetail(null);
+    setIsDetailShown(false);
   }
 
   return (
-    <div className="relative">
-      <Header />
-      <Instruction
+    <div className="relative flex flex-col min-h-screen">
+      <div className="flex-grow">
+        <Header />
+        <Instruction
         toggleInstructionMenu={toggleInstructionMenu}
         isInstructionMenuOpen={isInstructionMenuOpen}
       />
@@ -58,21 +58,25 @@ function App() {
         fetchData={fetchData}
         isInstructionMenuOpen={isInstructionMenuOpen}
       />
-      <RecipeContainer recipes={recipes} handleRecipeBriefClick={handleRecipeBriefClick} />
-
-      {isDetailShown
-          && (
-            <>
-              <BackgroundBlur
-                handleSummaryDetailClose={handleSummaryDetailClose}
-              />
-              <SummaryDetail
-                recipeDetail={recipeDetail}
-                isDetailShown={isDetailShown}
-                handleSummaryDetailClose={handleSummaryDetailClose}
-              />
-            </>
-          )}
+        <RecipeContainer
+          recipes={recipes}
+          handleRecipeCardClick={handleRecipeCardClick}
+        />
+            
+        {isDetailShown
+            && (
+              <>
+                <BackgroundBlur
+                  handleSummaryDetailClose={handleSummaryDetailClose}
+                />
+                <SummaryDetail
+                  recipeDetail={recipeDetail}
+                  isDetailShown={isDetailShown}
+                  handleSummaryDetailClose={handleSummaryDetailClose}
+                />
+              </>
+            )}
+      </div>
       <Footer />
     </div>
   );
