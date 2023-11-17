@@ -1,5 +1,5 @@
 // import { useState } from 'react';
-import './Instruction.css';
+import './InstructionMenu.css';
 import {
   PiNumberCircleOneBold,
   PiNumberCircleTwoBold,
@@ -9,7 +9,7 @@ import {
   from 'react-icons/pi';
 import { FiChevronDown, FiX } from 'react-icons/fi';
 
-export default function Instruction({ toggleInstructionMenu, isInstructionMenuOpen }) {
+export default function InstructionMenu({ toggleInstructionMenu, isInstructionMenuOpen }) {
   return (
     <div className="instruction-container mx-auto lg:mr-40 max-w-[274px] inset-x-0 absolute">
       <div className={`bg-[#232323] px-6 rounded-t-3xl ${isInstructionMenuOpen ? 'pt-2' : 'py-2 rounded-b-3xl'}`}>

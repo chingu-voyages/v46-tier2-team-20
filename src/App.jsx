@@ -8,7 +8,7 @@ import Header from './components/header/Header';
 import SummaryDetail from './components/summaryDetail/SummaryDetail';
 import BackgroundBlur from './components/backgroundBlur/BackgroundBlur';
 import RecipeContainer from './components/recipeDisplay/RecipeContainer';
-import Instruction from './components/instruction/Instruction';
+import InstructionMenu from './components/instructionMenu/InstructionMenu';
 import SearchBar from './components/searchBar/SearchBar';
 import Footer from './components/footer/Footer';
 import InstructionMenuHook from './hooks/InstructionMenuHook';
@@ -50,7 +50,7 @@ function App() {
     <div className="relative flex flex-col min-h-screen">
       <div className="flex-grow">
         <Header />
-        <Instruction
+        <InstructionMenu
           toggleInstructionMenu={toggleInstructionMenu}
           isInstructionMenuOpen={isInstructionMenuOpen}
         />
