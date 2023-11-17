@@ -1,21 +1,25 @@
 import { useState } from 'react';
 import './App.css';
+import './index.css';
 
-import axios from 'axios';
+// import axios from 'axios';
 
 import Header from './components/header/Header';
 import SummaryDetail from './components/summaryDetail/SummaryDetail';
 import BackgroundBlur from './components/backgroundBlur/BackgroundBlur';
 import RecipeContainer from './components/recipeDisplay/RecipeContainer';
+import InstructionMenu from './components/instructionMenu/InstructionMenu';
 import SearchBar from './components/searchBar/SearchBar';
 import Footer from './components/footer/Footer';
+import InstructionMenuHook from './hooks/InstructionMenuHook';
 
-import recipeData from './recipeData.js';
+import recipeData from './recipeData';
 
 function App() {
   const [recipes, setRecipes] = useState(null);
   const [recipeDetail, setRecipeDetail] = useState(null);
   const [isDetailShown, setIsDetailShown] = useState(false);
+  const { isInstructionMenuOpen, toggleInstructionMenu } = InstructionMenuHook();
   //   const [isSearching, setIsSearching] = useState(false);
 
   function fetchData(ingredientString) {
@@ -46,12 +50,19 @@ function App() {
     <div className="relative flex flex-col min-h-screen">
       <div className="flex-grow">
         <Header />
-        <SearchBar fetchData={fetchData} />
+        <InstructionMenu
+          toggleInstructionMenu={toggleInstructionMenu}
+          isInstructionMenuOpen={isInstructionMenuOpen}
+        />
+        <SearchBar
+          fetchData={fetchData}
+          isInstructionMenuOpen={isInstructionMenuOpen}
+        />
         <RecipeContainer
           recipes={recipes}
           handleRecipeCardClick={handleRecipeCardClick}
         />
-            
+
         {isDetailShown
             && (
               <>
