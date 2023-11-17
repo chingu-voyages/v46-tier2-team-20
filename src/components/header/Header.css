@@ -1,86 +1,49 @@
-@import url('https://fonts.googleapis.com/css2?family=Poppins&display=swap');
-
 .header {
-    position: relative;
-    height: 40vh; 
-}
-
-.header img {
-    width: 100%;
-    height: 100%;
-    /* Issue: Does not spread across the entire screen */
-    /* object-fit: contain; */
-
-    /* Issue: Full content does not appear, same issue as before */
-    /* object-fit: cover; */
-
-    /* Without using any of the above properties, the image stretch itself for larger screen sizes. */
-}
-
-.text-center {
-    position: absolute;
-    top: 50%;
-    left: 50%;
-    transform: translate(-50%, -50%);
-    color: #fff; 
-    text-align: center;
-    padding: 0 20px; 
-}
-
-.header h1 {
-    font-size: 2rem;
-}
-
-  .header h2 {
-    font-size: 1rem;
-}
-
-@media screen and (min-width: 992px) {
-    .header h1 {
-        font-size: 2.5rem;
-    }
-
-    .header h2 {
-        font-size: 1.5rem;
-    }
-}
-
-/* Old CSS */
-
-/* .header {
-    max-height: 40vh;
-    width: 100%;
     display: flex;
     flex-direction: column;
     justify-content: center;
-    gap: 0.625rem; 
-    color: #FFF;
-    text-shadow: 0px 0px 4px rgba(0, 0, 0, 0.30);
-    font-family: Poppins;
-    line-height: normal;
+    max-height: 45vh;
     padding: 0 0.5rem;
+    background: 
+    linear-gradient(0deg, rgba(35, 35, 35, 0.40) 0%, rgba(35, 35, 35, 0.40) 100%),
+    url('/header_img.jpg') center center / cover no-repeat, lightgray;
+    text-shadow: 0px 0px 4px rgba(0, 0, 0, 0.30);
+    color: #FFF;
+    gap: 0.625rem; 
+    line-height: normal;
+} 
 
-    position: relative;
+.logo{
+    width: 80px;
+    height: 57px;
+    top: 24px;
+    left: 24px;
 }
 
-.header img{
-    position: absolute;
-    max-height: 100%;
-    height: auto;
-    width: 100%;
-    top: 0;
-    left: 0;
-    /* object-fit: cover; */
-    /* object-fit: contain;
-    aspect-ratio: 1 / 1;
-}
-
-  .header h1 {
-    font-size: 2rem;
+.header h1 {
+    font-size: 1.5rem;
 }
 
   .header h2 {
     font-size: 1rem;
+    margin: 0 1.5em;
+}
+
+@media screen and (min-width: 300px){
+    .header h1{
+        font-size: 2rem;
+    }
+
+    .header h2{
+        margin: 0 3.125em;
+    }
+}
+
+@media screen and (min-width: 500px){
+    .logo{
+        width: 90px;
+        height: 67px;
+    }
 }
 
 @media screen and (min-width: 767px) {
@@ -95,21 +58,20 @@
     }
 
     .header h2 {
-        font-size: 1.5rem;
+        font-size: 1.75rem;
     }
-} */ 
 
-/* .header {
-    max-height: 40vh;
-    display: flex;
-    flex-direction: column;
-    justify-content: center;
-    gap: 0.625rem; 
-    background: linear-gradient(0deg, rgba(35, 35, 35, 0.40) 0%, rgba(35, 35, 35, 0.40) 100%), url('/header_img.jpg'), lightgray 50% ;
-    background-size: cover;
-    color: #FFF;
-    text-shadow: 0px 0px 4px rgba(0, 0, 0, 0.30);
-    font-family: Poppins;
-    line-height: normal;
-    padding: 0 0.5rem;
-} */
+    .logo{
+        width: 100px;
+        height: 77px;
+        left: 100px;
+    }
+}
+
+@media screen and (min-width: 2000px) {
+    .logo{
+        width: 125px;
+        height: 97px;
+        left: 200px;
+    }
+}
