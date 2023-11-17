@@ -2,7 +2,7 @@ import { useState } from 'react';
 import './SearchBar.css';
 import { BiSearch, BiSolidErrorCircle } from 'react-icons/bi';
 
-export default function SearchBar({ fetchData, isInstructionMenuOpen }) {
+export default function SearchBar({ fetchData }) {
   const [ingredients, setIngredients] = useState('');
   const [validationError, setValidationError] = useState('');
 
@@ -35,7 +35,7 @@ export default function SearchBar({ fetchData, isInstructionMenuOpen }) {
   };
 
   return (
-    <div className={`px-5 lg:ps-16 min-[1440px]:ps-32 2xl:ps-48 ${isInstructionMenuOpen ? 'search-menuOpen ' : ' search-menuClosed'}`}>
+    <div className="search-container mt-8 px-5">
       <form
         role="search"
         className="search-bar relative mx-auto lg:mx-0"
@@ -49,7 +49,7 @@ export default function SearchBar({ fetchData, isInstructionMenuOpen }) {
           id="ingredient"
           aria-label="Search for ingredients"
           placeholder="eggs cheese tomato..."
-          className={`border-solid border-2 rounded-xl py-3 px-5 w-full focus:outline-none focus:border-[#F56135] ${inputBorderColor}`}
+          className={`border-solid border-2 rounded-xl py-3 px-5 w-full ${inputBorderColor}`}
           autoComplete="off"
           value={ingredients}
           onChange={handleUserInputChange}

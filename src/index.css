@@ -1,14 +1,10 @@
 /* For global styling only */
+
 @import url('https://fonts.googleapis.com/css2?family=Poppins&display=swap');
 
 @tailwind base;
 @tailwind components;
 @tailwind utilities;
-
-
-:root {
-    --font-family: 'Poppins', sans-serif;
-}
 
 * {
     box-sizing: border-box;
@@ -16,7 +12,4 @@
     padding: 0;
 }
 
-body{
-    font-family: var(--font-family);
-}
 
