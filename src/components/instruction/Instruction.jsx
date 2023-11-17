@@ -13,7 +13,7 @@ export default function Instruction({ toggleInstructionMenu, isInstructionMenuOp
   return (
     <div className="instruction-container mx-auto lg:mr-40 max-w-[274px] inset-x-0 absolute">
       <div className={`bg-[#232323] px-6 rounded-t-3xl ${isInstructionMenuOpen ? 'pt-2' : 'py-2 rounded-b-3xl'}`}>
-        <button type="button" className="absolute right-5 w-[30px] h-[30px] top-3" onClick={toggleInstructionMenu}>
+        <button type="button" className="absolute right-5 w-[30px] h-[30px] top-[15px]" onClick={toggleInstructionMenu}>
           {isInstructionMenuOpen ? (
             <FiX className="text-slate-50 w-[25px] h-[25px]" aria-label="Close instruction menu" />
           ) : (
