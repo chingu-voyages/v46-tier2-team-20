@@ -3,7 +3,6 @@ import './App.css';
 
 import axios from 'axios';
 
-import PulseLoader from 'react-spinners/PulseLoader';
 import Header from './components/header/Header';
 import SummaryDetail from './components/summaryDetail/SummaryDetail';
 import BackgroundBlur from './components/backgroundBlur/BackgroundBlur';
@@ -12,6 +11,7 @@ import SearchBar from './components/searchBar/SearchBar';
 import Footer from './components/footer/Footer';
 import StatusMessage from './components/statusMessage/StatusMessage';
 import ErrorMessage from './components/statusMessage/ErrorMessage';
+import PulseLoader from 'react-spinners/PulseLoader';
 
 function App() {
   const [recipes, setRecipes] = useState({});
@@ -21,9 +21,7 @@ function App() {
   const [isSearching, setIsSearching] = useState(false);
   const [hasError, setHasError] = useState(false);
 
-  // This function could potentially be moved out to a "utils" folder?
-  // In that case, I think the response or error could be returned,
-  // and then used with setRecipes or setError here
+
   async function fetchData(ingredientString) {
     setIsSearched(true);
     setIsSearching(true);
