@@ -35,7 +35,7 @@ export default function SearchBar({ fetchData, isInstructionMenuOpen }) {
   };
 
   return (
-    <div className={`px-5 lg:ps-16 min-[1440px]:ps-32 2xl:ps-48 ${isInstructionMenuOpen ? 'mt-40 lg:mt-28 ' : 'mt-8'}`}>
+    <div className={`px-5 lg:ps-16 min-[1440px]:ps-32 2xl:ps-48 ${isInstructionMenuOpen ? 'search-menuOpen ' : ' search-menuClosed'}`}>
       <form
         role="search"
         className="search-bar relative mx-auto lg:mx-0"
@@ -49,7 +49,7 @@ export default function SearchBar({ fetchData, isInstructionMenuOpen }) {
           id="ingredient"
           aria-label="Search for ingredients"
           placeholder="eggs cheese tomato..."
-          className={`border-solid border-2 rounded-xl py-3 px-5 w-full ${inputBorderColor}`}
+          className={`border-solid border-2 rounded-xl py-3 px-5 w-full focus:outline-none focus:border-[#F56135] ${inputBorderColor}`}
           autoComplete="off"
           value={ingredients}
           onChange={handleUserInputChange}

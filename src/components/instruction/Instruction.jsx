@@ -11,8 +11,8 @@ import { FiChevronDown, FiX } from 'react-icons/fi';
 
 export default function Instruction({ toggleInstructionMenu, isInstructionMenuOpen }) {
   return (
-    <div className="instruction-container mx-auto lg:mr-40 max-w-[274px] inset-x-0 absolute top-[295px]">
-      <div className={isInstructionMenuOpen ? 'bg-[#232323] px-6 pt-2 rounded-t-3xl' : 'bg-[#232323] px-6 py-2 rounded-t-3xl rounded-b-3xl'}>
+    <div className="instruction-container mx-auto lg:mr-40 max-w-[274px] inset-x-0 absolute">
+      <div className={`bg-[#232323] px-6 rounded-t-3xl ${isInstructionMenuOpen ? 'pt-2' : 'py-2 rounded-b-3xl'}`}>
         <button type="button" className="absolute right-5 w-[30px] h-[30px] top-3" onClick={toggleInstructionMenu}>
           {isInstructionMenuOpen ? (
             <FiX className="text-slate-50 w-[25px] h-[25px]" aria-label="Close instruction menu" />
@@ -50,7 +50,6 @@ export default function Instruction({ toggleInstructionMenu, isInstructionMenuOp
           Pick a receipe to make!
         </li>
       </ul>
-
     </div>
   );
 }

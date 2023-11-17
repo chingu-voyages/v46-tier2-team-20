@@ -51,18 +51,18 @@ function App() {
       <div className="flex-grow">
         <Header />
         <Instruction
-        toggleInstructionMenu={toggleInstructionMenu}
-        isInstructionMenuOpen={isInstructionMenuOpen}
-      />
-      <SearchBar
-        fetchData={fetchData}
-        isInstructionMenuOpen={isInstructionMenuOpen}
-      />
+          toggleInstructionMenu={toggleInstructionMenu}
+          isInstructionMenuOpen={isInstructionMenuOpen}
+        />
+        <SearchBar
+          fetchData={fetchData}
+          isInstructionMenuOpen={isInstructionMenuOpen}
+        />
         <RecipeContainer
           recipes={recipes}
           handleRecipeCardClick={handleRecipeCardClick}
         />
-            
+
         {isDetailShown
             && (
               <>
