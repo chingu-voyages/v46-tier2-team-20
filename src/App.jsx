@@ -58,18 +58,13 @@ function App() {
     setIsSearching(false);
   }
 
-  function handleRecipeBriefClick(recipe) {
+  function handleRecipeCardClick(recipe) {
     setRecipeDetail(recipe);
-    toggleIsDetailShown();
-  }
-
-  function toggleIsDetailShown() {
-    setIsDetailShown((prevIsDetailShown) => !prevIsDetailShown);
+    setIsDetailShown(true);
   }
 
   function handleSummaryDetailClose() {
-    toggleIsDetailShown();
-    setRecipeDetail(null);
+    setIsDetailShown(false);
   }
 
   const indexOfLastRecord = currentPage * recordsPerPage;
@@ -78,24 +73,30 @@ function App() {
   const nPages = Math.ceil(recipes.length / recordsPerPage);
 
   return (
-    <div className="relative">
-      <Header />
-      <SearchBar fetchData={fetchData} />
-      {isSearching && (
-        <div className="flex items-center justify-center p-10">
-          <PulseLoader
-            color="#E93F0C"
-            loading={isSearching}
-            size={20}
-            aria-label="Loading Spinner"
-            data-testid="loader"
+    <div className="relative flex flex-col min-h-screen">
+      <div className="flex-grow">
+        <Header />
+        <SearchBar fetchData={fetchData} />
+        {isSearching && (
+          <div className="flex items-center justify-center p-10">
+            <PulseLoader
+              color="#E93F0C"
+              loading={isSearching}
+              size={20}
+              aria-label="Loading Spinner"
+              data-testid="loader"
+            />
+          </div>
+        )}
+        {recipes.length === 0 && <StatusMessage /> }
+        { hasError && <ErrorMessage /> }
+        { isSearched && (
+          <RecipeContainer
+            recipes={currentRecords}
+            handleRecipeCardClick={handleRecipeCardClick}
           />
-        </div>
-      )}
-      {recipes.length === 0 && <StatusMessage /> }
-      { hasError && <ErrorMessage /> }
-      {isSearched && <RecipeContainer recipes={currentRecords} handleRecipeBriefClick={handleRecipeBriefClick} />}
-      { !isEmpty(recipes)
+        )}
+        { !isEmpty(recipes)
         && (
           <Pagination
             nPages={nPages}
@@ -103,19 +104,17 @@ function App() {
             setCurrentPage={setCurrentPage}
           />
         )}
-      { isDetailShown
-          && (
-            <>
-              <BackgroundBlur
-                handleSummaryDetailClose={handleSummaryDetailClose}
-              />
-              <SummaryDetail
-                recipeDetail={recipeDetail}
-                isDetailShown={isDetailShown}
-                handleSummaryDetailClose={handleSummaryDetailClose}
-              />
-            </>
-          )}
+        { isDetailShown && (
+          <BackgroundBlur
+            handleSummaryDetailClose={handleSummaryDetailClose}
+          />
+        )}
+        <SummaryDetail
+          recipeDetail={recipeDetail}
+          isDetailShown={isDetailShown}
+          handleSummaryDetailClose={handleSummaryDetailClose}
+        />
+      </div>
       <Footer />
     </div>
   );
