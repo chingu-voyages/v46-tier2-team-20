@@ -39,6 +39,7 @@ function App() {
     setIsSearching(true);
     setRecipes({});
     setHasError(false);
+    setCurrentPage(1);
 
     const options = {
       method: 'GET',
