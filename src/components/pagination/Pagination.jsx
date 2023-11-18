@@ -11,11 +11,11 @@ function Pagination({ nPages, currentPage, setCurrentPage }) {
     if (currentPage !== 1) setCurrentPage(currentPage - 1);
   };
   return (
-    <nav className="flex items-center justify-center mb-4">
+    <nav aria-label="Page navigation" className="flex items-center justify-center mb-4 cursor-pointer">
       <ul className="inline-flex -space-x-px text-sm">
         <li className="page-item">
           <a
-            className="flex items-center justify-center px-3 h-8 leading-tight text-gray-500 bg-white border border-red-300 rounded-s-lg hover:bg-red-100 hover:text-red-700 dark:bg-red-800 dark:border-red-700 dark:text-red-400 dark:hover:bg-red-700 dark:hover:text-white"
+            className="flex items-center justify-center px-3 h-8 leading-tight text-white border border-red-300 rounded-s-lg hover:bg-red-100 hover:text-red-700"
             onClick={goToPrevPage}
           >
 
@@ -29,7 +29,7 @@ function Pagination({ nPages, currentPage, setCurrentPage }) {
           >
             <a
               onClick={() => setCurrentPage(pgNumber)}
-              className="flex items-center justify-center px-3 h-8 leading-tight bg-white border border-gray-300 hover:bg-red-100 hover:text-red-700 dark:bg-red-800 dark:border-red-700 dark:text-red-400 dark:hover:bg-red-700 dark:hover:text-white"
+              className="flex items-center justify-center px-3 h-8 leading-tight border text-white border-red-300 hover:bg-red-100 hover:text-red-700"
             >
 
               {pgNumber}
@@ -38,7 +38,7 @@ function Pagination({ nPages, currentPage, setCurrentPage }) {
         ))}
         <li>
           <a
-            className="flex items-center justify-center px-3 h-8 leading-tight text-gray-500 bg-white border border-red-300 rounded-e-lg hover:bg-red-100 hover:text-red-700 dark:bg-red-800 dark:border-red-700 dark:text-red-400 dark:hover:bg-red-700 dark:hover:text-white"
+            className="flex items-center justify-center px-3 h-8 leading-tight text-white border border-red-300 rounded-e-lg hover:bg-red-100 hover:text-red-700"
             onClick={goToNextPage}
           >
             Next
