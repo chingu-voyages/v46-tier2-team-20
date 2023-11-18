@@ -25,9 +25,7 @@ function App() {
   const [currentPage, setCurrentPage] = useState(1);
   const [recordsPerPage] = useState(10);
 
-  // This function could potentially be moved out to a "utils" folder?
-  // In that case, I think the response or error could be returned,
-  // and then used with setRecipes or setError here
+
   async function fetchData(ingredientString) {
     setIsSearched(true);
     setIsSearching(true);
