@@ -30,7 +30,7 @@ function Footer() {
               {' '}
               <a href="https://github.com/allison-truhlar" target="_blank" rel="noreferrer">Allison</a>
               {' '}
-              <a href="https://github.com/Emimint" target="_blank" rel="noreferrer">Emimint</a>
+              <a href="https://github.com/Emimint" target="_blank" rel="noreferrer">Emilie</a>
               {' '}
               <a href="https://github.com/komalgill0310" target="_blank" rel="noreferrer">Komal</a>
             </div>
