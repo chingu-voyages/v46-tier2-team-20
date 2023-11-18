@@ -1,0 +1,40 @@
+.instruction-container {
+    top: 190px;
+}
+
+.instruction-menu {
+    display: none;
+    transition: 0.3s ease;
+}
+
+.instruction-menu.show {
+    display: block;
+}
+
+.instruction-step {
+    @apply text-slate-50 flex items-center justify-start py-1;
+}
+
+@media (min-height: 400px) {
+    .instruction-container {
+        top: 250px;
+    }
+}
+
+@media (min-height: 500px) {
+    .instruction-container {
+        top: 260px;
+    }
+}
+
+@media (min-height: 800px) {
+    .instruction-container {
+        top: 290px;
+    }
+}
+
+@media (min-height: 1024px) {
+    .instruction-container {
+        top: 380px;
+    }
+}

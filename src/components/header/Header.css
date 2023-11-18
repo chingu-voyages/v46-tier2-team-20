@@ -75,3 +75,13 @@
         left: 200px;
     }
 }
+
+@media (min-height: 300px) and (max-height: 600px ){
+    .header {
+        max-height: 60vh;
+    }
+
+    .header h1 {
+        padding-top: 40px;
+    }
+}

@@ -9,22 +9,30 @@ import Header from './components/header/Header';
 import SummaryDetail from './components/summaryDetail/SummaryDetail';
 import BackgroundBlur from './components/backgroundBlur/BackgroundBlur';
 import RecipeContainer from './components/recipeDisplay/RecipeContainer';
+import InstructionMenu from './components/instructionMenu/InstructionMenu';
 import SearchBar from './components/searchBar/SearchBar';
 import Footer from './components/footer/Footer';
 import StatusMessage from './components/statusMessage/StatusMessage';
 import ErrorMessage from './components/statusMessage/ErrorMessage';
 import Pagination from './components/pagination/Pagination';
+import InstructionMenuHook from './hooks/InstructionMenuHook';
+import RecipeDetailHook from './hooks/RecipeDetailHook';
 
 function App() {
   const [recipes, setRecipes] = useState({});
-  const [recipeDetail, setRecipeDetail] = useState(null);
-  const [isDetailShown, setIsDetailShown] = useState(false);
   const [isSearched, setIsSearched] = useState(false);
   const [isSearching, setIsSearching] = useState(false);
   const [hasError, setHasError] = useState(false);
   const [currentPage, setCurrentPage] = useState(1);
   const [recordsPerPage] = useState(10);
 
+  const { isInstructionMenuOpen, toggleInstructionMenu } = InstructionMenuHook();
+  const {
+    recipeDetail,
+    isDetailShown,
+    handleRecipeCardClick,
+    handleSummaryDetailClose,
+  } = RecipeDetailHook();
 
   async function fetchData(ingredientString) {
     setIsSearched(true);
@@ -56,15 +64,6 @@ function App() {
     setIsSearching(false);
   }
 
-  function handleRecipeCardClick(recipe) {
-    setRecipeDetail(recipe);
-    setIsDetailShown(true);
-  }
-
-  function handleSummaryDetailClose() {
-    setIsDetailShown(false);
-  }
-
   const indexOfLastRecord = currentPage * recordsPerPage;
   const indexOfFirstRecord = indexOfLastRecord - recordsPerPage;
   const currentRecords = Object.values(recipes).slice(indexOfFirstRecord, indexOfLastRecord);
@@ -74,7 +73,14 @@ function App() {
     <div className="relative flex flex-col min-h-screen">
       <div className="flex-grow">
         <Header />
-        <SearchBar fetchData={fetchData} />
+        <InstructionMenu
+          toggleInstructionMenu={toggleInstructionMenu}
+          isInstructionMenuOpen={isInstructionMenuOpen}
+        />
+        <SearchBar
+          fetchData={fetchData}
+          isInstructionMenuOpen={isInstructionMenuOpen}
+        />
         {isSearching && (
           <div className="flex items-center justify-center p-10">
             <PulseLoader
@@ -88,7 +94,7 @@ function App() {
         )}
         {recipes.length === 0 && <StatusMessage /> }
         { hasError && <ErrorMessage /> }
-        { isSearched && (
+        { isSearched && recipes.length !== 0 && (
           <RecipeContainer
             recipes={currentRecords}
             handleRecipeCardClick={handleRecipeCardClick}
