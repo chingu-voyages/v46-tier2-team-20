@@ -15,7 +15,7 @@ function Footer() {
 
           <div className="pr-2">
             <a href="https://github.com/chingu-voyages/v46-tier2-team-20" target="_blank" rel="noreferrer">
-              <img src="/github-mark-white.png" alt="github-logo" width="30" height="30" />
+              <img src="/github-mark-w-theme.png" alt="github-logo" width="30" height="30" />
             </a>
           </div>
 
