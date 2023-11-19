@@ -81,7 +81,7 @@ function App() {
             />
           </div>
         )}
-        {recipes.length === 0 && <StatusMessage /> }
+        {!hasError && recipes.length === 0 && <StatusMessage /> }
         { hasError && <ErrorMessage /> }
         {isSearched && (
           <RecipeContainer
