@@ -3,7 +3,7 @@
 ## Overview
 FlavrFindr is the ultimate recipe app, merging the ease of a cookbook with real-time data from an API. Type in keywords, discover diverse recipes instantly. Ideal for chefs and enthusiasts, the app's user-friendly interface ensures a smooth experience. Intelligent error detection prompts users to input meaningful data. With its simplicity, real-time integration, and error prevention, FlavrFindr redefines cooking discovery. Explore flavors effortlessly with FlavrFindr – your go-to recipe companion.
 
-**[Explore Live Version]([#](https://flavrfindr.netlify.app/)**
+**[Explore Live Version](https://flavrfindr.netlify.app/)**
 
 ## Table of contents
 
