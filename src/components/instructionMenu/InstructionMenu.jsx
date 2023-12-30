@@ -11,7 +11,7 @@ import { FiChevronDown, FiX } from 'react-icons/fi';
 export default function InstructionMenu({ toggleInstructionMenu, isInstructionMenuOpen }) {
   return (
     <div className="instruction-container mx-auto lg:mr-40 max-w-[274px] inset-x-0 absolute">
-      <div className={`bg-[#232323] px-6 rounded-t-3xl ${isInstructionMenuOpen ? 'pt-2' : 'py-2 rounded-b-3xl'}`}>
+      <div className={`bg-[#2E221F] px-6 rounded-t-3xl ${isInstructionMenuOpen ? 'pt-2' : 'py-2 rounded-b-3xl'}`}>
         <button type="button" className="absolute right-5 w-[30px] h-[30px] top-[15px]" onClick={toggleInstructionMenu}>
           {isInstructionMenuOpen ? (
             <FiX className="text-slate-50 w-[25px] h-[25px]" aria-label="Close instruction menu" />
@@ -23,7 +23,7 @@ export default function InstructionMenu({ toggleInstructionMenu, isInstructionMe
           Instructions
         </h3>
       </div>
-      <ul className={`instruction-menu ${isInstructionMenuOpen ? 'show' : ''} bg-[#232323] px-6 pt-2 pb-4 rounded-es-3xl rounded-b-3xl`}>
+      <ul className={`instruction-menu ${isInstructionMenuOpen ? 'show' : ''} bg-[#2E221F] px-6 pt-2 pb-4 rounded-es-3xl rounded-b-3xl`}>
         <li className="instruction-step">
           <span className="px-1.5">
             <PiNumberCircleOneBold className="w-6 h-6" />

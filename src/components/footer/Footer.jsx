@@ -15,7 +15,7 @@ function Footer() {
 
           <div className="pr-2">
             <a href="https://github.com/chingu-voyages/v46-tier2-team-20" target="_blank" rel="noreferrer">
-              <img src="/github-mark-w-theme.png" alt="github-logo" width="30" height="30" />
+              <img src="/github-mark-w-theme.svg" alt="github-logo" width="30" height="30" />
             </a>
           </div>
 
@@ -30,7 +30,7 @@ function Footer() {
               {' '}
               <a href="https://github.com/allison-truhlar" target="_blank" rel="noreferrer">Allison</a>
               {' '}
-              <a href="https://github.com/Emimint" target="_blank" rel="noreferrer">Emimint</a>
+              <a href="https://github.com/Emimint" target="_blank" rel="noreferrer">Emilie</a>
               {' '}
               <a href="https://github.com/komalgill0310" target="_blank" rel="noreferrer">Komal</a>
             </div>

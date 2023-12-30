@@ -4,6 +4,7 @@ import './App.css';
 import axios from 'axios';
 
 import PulseLoader from 'react-spinners/PulseLoader';
+import { isEmpty } from 'lodash';
 import Header from './components/header/Header';
 import SummaryDetail from './components/summaryDetail/SummaryDetail';
 import BackgroundBlur from './components/backgroundBlur/BackgroundBlur';
@@ -13,6 +14,7 @@ import SearchBar from './components/searchBar/SearchBar';
 import Footer from './components/footer/Footer';
 import StatusMessage from './components/statusMessage/StatusMessage';
 import ErrorMessage from './components/statusMessage/ErrorMessage';
+import Pagination from './components/pagination/Pagination';
 import InstructionMenuHook from './hooks/InstructionMenuHook';
 import RecipeDetailHook from './hooks/RecipeDetailHook';
 
@@ -21,6 +23,9 @@ function App() {
   const [isSearched, setIsSearched] = useState(false);
   const [isSearching, setIsSearching] = useState(false);
   const [hasError, setHasError] = useState(false);
+  const [currentPage, setCurrentPage] = useState(1);
+  const [recordsPerPage] = useState(10);
+
   const { isInstructionMenuOpen, toggleInstructionMenu } = InstructionMenuHook();
   const {
     recipeDetail,
@@ -34,13 +39,14 @@ function App() {
     setIsSearching(true);
     setRecipes({});
     setHasError(false);
+    setCurrentPage(1);
 
     const options = {
       method: 'GET',
       url: 'https://tasty.p.rapidapi.com/recipes/list',
       params: {
         from: '0',
-        size: '20',
+        size: '50',
         q: ingredientString,
       },
       headers: {
@@ -58,6 +64,12 @@ function App() {
     }
     setIsSearching(false);
   }
+
+  const indexOfLastRecord = currentPage * recordsPerPage;
+  const indexOfFirstRecord = indexOfLastRecord - recordsPerPage;
+  const currentRecords = Object.values(recipes).slice(indexOfFirstRecord, indexOfLastRecord);
+  const nPages = Math.ceil(recipes.length / recordsPerPage);
+
   return (
     <div className="relative flex flex-col min-h-screen">
       <div className="flex-grow">
@@ -83,13 +95,21 @@ function App() {
         )}
         {recipes.length === 0 && <StatusMessage /> }
         { hasError && <ErrorMessage /> }
-        {isSearched && (
+        { isSearched && recipes.length !== 0 && (
           <RecipeContainer
-            recipes={recipes}
+            recipes={currentRecords}
             handleRecipeCardClick={handleRecipeCardClick}
           />
         )}
-        {isDetailShown && (
+        { !isEmpty(recipes)
+        && (
+          <Pagination
+            nPages={nPages}
+            currentPage={currentPage}
+            setCurrentPage={setCurrentPage}
+          />
+        )}
+        { isDetailShown && (
           <BackgroundBlur
             handleSummaryDetailClose={handleSummaryDetailClose}
           />
